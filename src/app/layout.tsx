@@ -9,7 +9,7 @@ import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import { localBusinessSchema } from "@/lib/schema";
 import Analytics from "@/components/analytics/Analytics";
 
-const siteUrl = "https://luvubeautyacademy.com";
+import { siteUrl } from "@/lib/site";
 
 /*
  * Fonts are self-hosted and served from our own origin by next/font. This

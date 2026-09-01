@@ -40,6 +40,7 @@ each feature simply stays switched off. See `.env.example`.
 
 | Variable | Effect if unset | Where to get it |
 |---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Falls back to `https://luvubeautyacademy.com` — **set this if you deploy anywhere else** (see §5) | The live origin, no trailing slash |
 | `LEAD_WEBHOOK_URL` | Contact-form enquiries reach the server log only | A Google Apps Script web app, Zapier/Make catch hook, or inbox relay |
 | `NEXT_PUBLIC_GA_ID` | No analytics collected | GA4 → Admin → Data streams |
 | `NEXT_PUBLIC_GTM_ID` | No Tag Manager | GTM container ID |
@@ -109,18 +110,23 @@ directory will not exist.
 
 ## 5. Before going live: the domain
 
-The production domain is **hardcoded in 14 places** across 11 files —
-every page's canonical URL, the sitemap, `robots.txt`, the Open Graph tags and
-the LocalBusiness structured data.
+Set **one** variable and the whole site follows:
 
-```bash
-grep -rn "luvubeautyacademy.com" src/
+```
+NEXT_PUBLIC_SITE_URL=https://your-live-domain.com
 ```
 
-If the site will live on a different domain, **every one of those must be
-updated before launch.** Canonical tags pointing at a domain that does not
-resolve tell Google the real version of each page lives at a dead URL, which
-can keep the entire site out of search results.
+It drives every page's canonical URL, the sitemap, `robots.txt`, the Open Graph
+and Twitter tags, and the LocalBusiness structured data. A trailing slash is
+stripped automatically, so both forms are safe.
+
+**This is the most important variable to get right.** If the site is served
+from a domain other than the one in the canonical tags, Google is told the real
+version of every page lives elsewhere — which can keep the entire site out of
+search results.
+
+Because it is a `NEXT_PUBLIC_*` value it is baked in at build time, so set it
+**before** the build, and rebuild after changing it.
 
 Confirm the domain resolves to the deployment before announcing it:
 
@@ -167,7 +173,7 @@ server, so it saves nothing.
 
 - [ ] `node -v` on the build machine is 20.9.0+
 - [ ] Site loads over HTTPS on the final domain
-- [ ] Domain in `src/` matches the live domain (§5)
+- [ ] `NEXT_PUBLIC_SITE_URL` set to the live origin, and the build ran after (§5)
 - [ ] `/sitemap.xml` and `/robots.txt` return 200 and show the correct domain
 - [ ] `/manifest.webmanifest` returns 200
 - [ ] Contact form opens WhatsApp with the details pre-filled

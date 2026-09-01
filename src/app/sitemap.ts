@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { courses } from "@/data/courses";
+import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://luvubeautyacademy.com";
+  const baseUrl = siteUrl;
   const now = new Date();
 
   const staticPages: MetadataRoute.Sitemap = [

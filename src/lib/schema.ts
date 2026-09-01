@@ -1,4 +1,5 @@
 // JSON-LD Structured Data for Luv U Beauty Academy
+import { siteUrl } from "./site";
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -7,7 +8,7 @@ export const localBusinessSchema = {
   alternateName: "Luv U Beauty Academy Tanjore",
   description:
     "Premier beauty academy in Tanjore offering professional beautician courses, bridal makeup training, hair styling, skin care, and nail art with placement assistance.",
-  url: "https://luvubeautyacademy.com",
+  url: siteUrl,
   telephone: "+91-9487992728",
   email: "luvubeautyacademy@gmail.com",
   address: {

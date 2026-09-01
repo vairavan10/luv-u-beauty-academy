@@ -212,14 +212,14 @@ them set. Copy `.env.example` to `.env.local` and fill in what you need.
 
 | Variable | Purpose |
 |---|---|
+| `NEXT_PUBLIC_SITE_URL` | Public site origin. Drives every canonical URL, the sitemap, `robots.txt` and the Open Graph tags. Falls back to `https://luvubeautyacademy.com`. |
 | `LEAD_WEBHOOK_URL` | Where `/api/enquiry` forwards contact-form submissions. Server-only. |
 | `NEXT_PUBLIC_GA_ID` | Google Analytics 4 measurement ID |
 | `NEXT_PUBLIC_GTM_ID` | Google Tag Manager container ID |
 | `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console meta-tag value |
 
 `NEXT_PUBLIC_*` values are inlined at build time — changing one needs a rebuild,
-not just a restart. The WhatsApp number and site domain are constants in the
-source, not environment variables.
+not just a restart. The WhatsApp number is still a constant in the source.
 
 > ⚠️ Never commit `.env.local` to version control.
 

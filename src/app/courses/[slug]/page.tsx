@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { siteUrl, absoluteUrl } from "@/lib/site";
 import {
   Clock,
   ChevronRight,
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${course.title} in Tanjore | ${course.duration} Program | Luv U Beauty Academy`,
     description: `${course.description} Duration: ${course.duration}. Level: ${course.level}. Govt. recognized certificate + placement assistance. Enroll now at Luv U Beauty Academy, Tanjore.`,
     alternates: {
-      canonical: `https://luvubeautyacademy.com/courses/${course.slug}`,
+      canonical: absoluteUrl(`/courses/${course.slug}`),
     },
   };
 }
@@ -46,9 +47,9 @@ export default async function CourseDetailPage({ params }: Props) {
   if (!course) notFound();
 
   const breadcrumbs = [
-    { name: "Home", url: "https://luvubeautyacademy.com" },
-    { name: "Courses", url: "https://luvubeautyacademy.com/courses" },
-    { name: course.title, url: `https://luvubeautyacademy.com/courses/${course.slug}` },
+    { name: "Home", url: siteUrl },
+    { name: "Courses", url: absoluteUrl("/courses") },
+    { name: course.title, url: absoluteUrl(`/courses/${course.slug}`) },
   ];
 
   const courseFaqs = [

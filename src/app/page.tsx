@@ -8,6 +8,7 @@ import GallerySection from "@/components/home/GallerySection";
 import PlacementSection from "@/components/home/PlacementSection";
 import FAQSection from "@/components/home/FAQSection";
 import FinalCTA from "@/components/home/FinalCTA";
+import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title:
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   description:
     "Join Luv U Beauty Academy – Tanjore's premier beauty training institute. Professional beautician courses, bridal makeup, hair styling, nail art & skin care with govt. certification and 100% placement support. Enroll today!",
   alternates: {
-    canonical: "https://luvubeautyacademy.com",
+    canonical: siteUrl,
   },
 };
 

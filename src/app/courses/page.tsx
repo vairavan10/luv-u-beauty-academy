@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import CoursesClient from "./CoursesClient";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title:
     "Beautician Courses in Tanjore | Professional Beauty Training Programs | Luv U Beauty Academy",
   description:
     "Explore all beauty courses at Luv U Beauty Academy Tanjore. Professional beautician course, bridal makeup, hair styling, nail art, skin care & salon management with govt. certification and placement support.",
-  alternates: { canonical: "https://luvubeautyacademy.com/courses" },
+  alternates: { canonical: absoluteUrl("/courses") },
 };
 
 export default function CoursesPage() {

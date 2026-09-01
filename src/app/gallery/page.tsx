@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import GalleryClient from "./GalleryClient";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Gallery | Inside Our Academy | Luv U Beauty Academy Tanjore",
   description:
     "See inside Luv U Beauty Academy in Tanjore, Thanjavur — our live practical classes, our training premises, and our students on certification day.",
-  alternates: { canonical: "https://luvubeautyacademy.com/gallery" },
+  alternates: { canonical: absoluteUrl("/gallery") },
 };
 
 export default function GalleryPage() {

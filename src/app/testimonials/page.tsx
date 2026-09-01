@@ -3,12 +3,13 @@ import { stats } from "@/data/stats";
 import Link from "next/link";
 import { Star, Quote, BadgeCheck, ArrowRight, Infinity } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Student Testimonials | Reviews of Luv U Beauty Academy Tanjore",
   description:
     "Read real reviews from students who trained at Luv U Beauty Academy in Tanjore. See how our beautician, bridal makeup and hair styling courses changed their lives.",
-  alternates: { canonical: "https://luvubeautyacademy.com/testimonials" },
+  alternates: { canonical: absoluteUrl("/testimonials") },
 };
 
 const pageStats = [
