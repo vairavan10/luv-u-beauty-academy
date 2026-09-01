@@ -56,21 +56,17 @@ export const metadata: Metadata = {
     title: "Luv U Beauty Academy | Best Beautician Academy in Tanjore",
     description:
       "Join the best beauty academy in Tanjore. Professional beautician courses, bridal makeup, hair styling & more with placement assistance.",
-    images: [
-      {
-        url: `${siteUrl}/og-image.jpg`,
-        width: 1200,
-        height: 630,
-        alt: "Luv U Beauty Academy – Best Beautician Academy in Tanjore, Thanjavur",
-      },
-    ],
+    // og:image tags come from src/app/opengraph-image.tsx (generated at build
+    // time). Do not add an `images` array here — it would override the
+    // file-convention image and reintroduce the risk of pointing at a file
+    // that does not exist.
   },
   twitter: {
     card: "summary_large_image",
     title: "Luv U Beauty Academy | Best Beautician Academy in Tanjore",
     description:
       "Join the best beauty academy in Tanjore. Professional beautician courses with placement assistance.",
-    images: [`${siteUrl}/og-image.jpg`],
+    // twitter:image comes from src/app/twitter-image.tsx.
   },
   alternates: {
     canonical: siteUrl,

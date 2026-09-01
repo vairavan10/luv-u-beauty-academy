@@ -1,327 +1,540 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
+import { gsap } from "gsap";
+import { galleryImages } from "@/data/gallery";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=800", alt: "Professional bridal makeup transformation", category: "Bridal", span: "tall" },
-  { src: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800", alt: "Students in makeup training class", category: "Training", span: "normal" },
-  { src: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800", alt: "South Indian bridal look", category: "Bridal", span: "normal" },
-  { src: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800", alt: "Hair styling practice session", category: "Hair", span: "tall" },
-  { src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800", alt: "Nail art designs by students", category: "Nail Art", span: "normal" },
-  { src: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800", alt: "Skin care facial treatment", category: "Skin Care", span: "normal" },
-  { src: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800", alt: "Makeup artist at work", category: "Makeup", span: "wide" },
-  { src: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800", alt: "Modern salon training facility", category: "Academy", span: "normal" },
-  { src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800", alt: "Student makeup practice session", category: "Makeup", span: "tall" },
-  { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800", alt: "Hair transformation result", category: "Hair", span: "normal" },
-  { src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800", alt: "Beauty student portfolio work", category: "Training", span: "normal" },
-  { src: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=800", alt: "Professional makeup look", category: "Makeup", span: "wide" },
-];
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
-const categories = ["All", "Bridal", "Makeup", "Hair", "Nail Art", "Skin Care", "Training", "Academy"];
+// Gallery data lives in @/data/gallery so this page and the homepage stay in sync.
 
 export default function GalleryClient() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const gridRef = useRef<HTMLDivElement>(null);
+  const lightboxRef = useRef<HTMLDivElement>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [visible, setVisible] = useState<boolean[]>(new Array(galleryImages.length).fill(false));
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
-  const filtered =
-    activeCategory === "All"
-      ? galleryImages
-      : galleryImages.filter((img) => img.category === activeCategory);
-
-  // Staggered reveal on mount / filter change
+  // Entrance Stagger Animation with GSAP
   useEffect(() => {
-    setVisible(new Array(galleryImages.length).fill(false));
-    filtered.forEach((_, i) => {
-      setTimeout(() => {
-        setVisible((prev) => {
-          const next = [...prev];
-          next[i] = true;
-          return next;
-        });
-      }, i * 60);
-    });
-  }, [activeCategory]); // eslint-disable-line react-hooks/exhaustive-deps
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".gallery-card",
+        {
+          opacity: 0,
+          y: 70,
+          scale: 0.94,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.1,
+          stagger: 0.15,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 85%",
+          },
+        }
+      );
+    }, gridRef);
 
-  // Keyboard nav for lightbox
-  const onKey = useCallback(
+    return () => ctx.revert();
+  }, []);
+
+  // Track body overflow when lightbox is active
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [lightboxIndex]);
+
+  // Touch/Mouse Parallax Hover Effect
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Normalizing coordinates (-0.5 to 0.5)
+    const xc = x / rect.width - 0.5;
+    const yc = y / rect.height - 0.5;
+
+    // Subtle 3D shift for the image
+    const img = card.querySelector(".gallery-img-inner");
+    if (img) {
+      gsap.to(img, {
+        x: xc * 24,
+        y: yc * 24,
+        scale: 1.08,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    }
+  };
+
+  const handleMouseLeave = (index: number, card: HTMLDivElement) => {
+    setHoveredIndex(null);
+    const img = card.querySelector(".gallery-img-inner");
+    if (img) {
+      gsap.to(img, {
+        x: 0,
+        y: 0,
+        scale: 1.02,
+        duration: 0.6,
+        ease: "power3.out",
+      });
+    }
+  };
+
+  // Animated Close Lightbox
+  const closeLightbox = () => {
+    if (lightboxRef.current) {
+      const img = lightboxRef.current.querySelector(".lightbox-img-el");
+      const overlay = lightboxRef.current;
+
+      gsap.to(overlay, {
+        opacity: 0,
+        duration: 0.25,
+        ease: "power2.in",
+        onComplete: () => {
+          setLightboxIndex(null);
+        },
+      });
+
+      if (img) {
+        gsap.to(img, {
+          scale: 0.9,
+          y: 20,
+          duration: 0.25,
+          ease: "power2.in",
+        });
+      }
+    } else {
+      setLightboxIndex(null);
+    }
+  };
+
+  // Navigating Lightbox with sliding transitions
+  const navigateLightbox = (direction: "next" | "prev", e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (lightboxIndex === null) return;
+
+    const nextIndex =
+      direction === "next"
+        ? (lightboxIndex + 1) % galleryImages.length
+        : (lightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+
+    const img = lightboxRef.current?.querySelector(".lightbox-img-el");
+    const text = lightboxRef.current?.querySelector(".lightbox-text-el");
+
+    if (img && text) {
+      gsap.to([img, text], {
+        opacity: 0,
+        x: direction === "next" ? -40 : 40,
+        scale: 0.96,
+        duration: 0.2,
+        ease: "power2.in",
+        onComplete: () => {
+          setLightboxIndex(nextIndex);
+          // Animate the next image in
+          gsap.fromTo(
+            [img, text],
+            {
+              opacity: 0,
+              x: direction === "next" ? 40 : -40,
+              scale: 0.96,
+            },
+            {
+              opacity: 1,
+              x: 0,
+              scale: 1,
+              duration: 0.4,
+              ease: "power2.out",
+            }
+          );
+        },
+      });
+    } else {
+      setLightboxIndex(nextIndex);
+    }
+  };
+
+  // Keyboard navigation
+  const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
-      if (e.key === "Escape") setLightboxIndex(null);
-      if (e.key === "ArrowRight") setLightboxIndex((p) => (p! + 1) % filtered.length);
-      if (e.key === "ArrowLeft") setLightboxIndex((p) => (p! - 1 + filtered.length) % filtered.length);
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") navigateLightbox("next");
+      if (e.key === "ArrowLeft") navigateLightbox("prev");
     },
-    [lightboxIndex, filtered.length]
+    [lightboxIndex] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   useEffect(() => {
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onKey]);
-
-  const catCount = (cat: string) =>
-    cat === "All" ? galleryImages.length : galleryImages.filter((g) => g.category === cat).length;
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
 
   return (
     <>
       <style>{`
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(22px) scale(0.97); }
-          to   { opacity: 1; transform: translateY(0) scale(1); }
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-auto-rows: 290px;
+          gap: 24px;
+          width: 100%;
         }
-        .gallery-item {
-          animation: fadeUp 0.45s ease both;
+
+        .gallery-card {
+          position: relative;
+          border-radius: 24px;
+          overflow: hidden;
+          background: #fff;
+          border: 1px solid rgba(183, 110, 121, 0.12);
+          box-shadow: 0 10px 30px rgba(183, 110, 121, 0.04);
+          cursor: pointer;
+          transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                      filter 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                      transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                      box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        @keyframes lightboxIn {
-          from { opacity: 0; transform: scale(0.94); }
-          to   { opacity: 1; transform: scale(1); }
+
+        .gallery-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 45px rgba(183, 110, 121, 0.16);
+          border-color: rgba(183, 110, 121, 0.35);
         }
-        .lightbox-img {
-          animation: lightboxIn 0.25s ease both;
+
+        /* Desktop Asymmetric Layout (3 Columns) */
+        .card-idx-0 {
+          grid-column: span 2;
+          grid-row: span 2;
+        }
+        .card-idx-1 { grid-column: span 1; grid-row: span 1; }
+        .card-idx-2 { grid-column: span 1; grid-row: span 1; }
+        .card-idx-3 { grid-column: span 1; grid-row: span 1; }
+        .card-idx-4 { grid-column: span 1; grid-row: span 1; }
+        .card-idx-5 { grid-column: span 1; grid-row: span 1; }
+
+        .gallery-card:hover .zoom-icon-wrapper {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        /* Tablet Responsive (2 Columns) */
+        @media (max-width: 1024px) {
+          .gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 270px;
+            gap: 20px;
+          }
+          .card-idx-0 {
+            grid-column: span 2;
+            grid-row: span 1;
+          }
+          .card-idx-1 { grid-column: span 1; }
+          .card-idx-2 { grid-column: span 1; }
+          .card-idx-3 { grid-column: span 1; }
+          .card-idx-4 { grid-column: span 1; }
+          .card-idx-5 { grid-column: span 2; } /* bottom span full */
+        }
+
+        /* Mobile Responsive (1 Column) */
+        @media (max-width: 640px) {
+          .gallery-grid {
+            grid-template-columns: 1fr;
+            grid-auto-rows: 340px;
+            gap: 16px;
+          }
+          .card-idx-0, .card-idx-1, .card-idx-2, .card-idx-3, .card-idx-4, .card-idx-5 {
+            grid-column: span 1;
+            grid-row: span 1;
+          }
         }
       `}</style>
 
-      {/* ── Category Filter ── */}
-      <div style={{
-        display: "flex", flexWrap: "wrap", justifyContent: "center",
-        gap: 8, marginBottom: 40,
-      }}>
-        {categories.map((cat) => {
-          const isActive = activeCategory === cat;
+      {/* ── Asymmetric Layout Grid ── */}
+      <div ref={gridRef} className="gallery-grid">
+        {galleryImages.map((image, index) => {
+          const isDimmed = hoveredIndex !== null && hoveredIndex !== index;
           return (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
+            <div
+              key={image.src}
+              className={`gallery-card card-idx-${index}`}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseMove={(e) => handleMouseMove(e, index)}
+              onMouseLeave={(e) => handleMouseLeave(index, e.currentTarget)}
+              onClick={() => setLightboxIndex(index)}
               style={{
-                display: "inline-flex", alignItems: "center", gap: 7,
-                padding: "8px 18px", borderRadius: 999,
-                fontFamily: "Inter, sans-serif", fontSize: 13, fontWeight: 600,
-                cursor: "pointer", transition: "all 0.2s ease",
-                border: "1.5px solid",
-                borderColor: isActive ? "#E91E8C" : "#E5E7EB",
-                background: isActive
-                  ? "linear-gradient(135deg, #E91E8C, #C2185B)"
-                  : "#fff",
-                color: isActive ? "#fff" : "#6B7280",
-                boxShadow: isActive ? "0 4px 14px rgba(233,30,140,0.3)" : "none",
+                opacity: isDimmed ? 0.35 : 1,
+                filter: isDimmed ? "blur(1.5px) grayscale(15%)" : "none",
+                transform: isDimmed ? "scale(0.97)" : undefined,
               }}
             >
-              {cat}
-              <span style={{
-                display: "inline-flex", alignItems: "center", justifyContent: "center",
-                width: 20, height: 20, borderRadius: "50%",
-                background: isActive ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.06)",
-                fontSize: 10, fontWeight: 700,
-                color: isActive ? "#fff" : "#9CA3AF",
-              }}>
-                {catCount(cat)}
-              </span>
-            </button>
+              <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
+                {/* Image Wrapper */}
+                <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={index === 0 ? 1200 : 800}
+                    height={index === 0 ? 800 : 600}
+                    className="gallery-img-inner"
+                    style={{
+                      width: "120%",
+                      height: "120%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      top: "-10%",
+                      left: "-10%",
+                      willChange: "transform",
+                      transform: "scale(1.02)",
+                    }}
+                    sizes={index === 0 ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 640px) 100vw, 33vw"}
+                    priority={index === 0}
+                  />
+                </div>
+
+
+                {/* Floating Zoom Action */}
+                <div
+                  className="zoom-icon-wrapper"
+                  style={{
+                    position: "absolute",
+                    top: "20px",
+                    right: "20px",
+                    width: "44px",
+                    height: "44px",
+                    borderRadius: "50%",
+                    background: "rgba(255, 255, 255, 0.15)",
+                    border: "1px solid rgba(255, 255, 255, 0.25)",
+                    backdropFilter: "blur(8px)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    opacity: 0,
+                    transform: "scale(0.7)",
+                    transition: "all 0.35s cubic-bezier(0.25, 1, 0.5, 1)",
+                    zIndex: 2,
+                  }}
+                >
+                  <ZoomIn size={18} color="#fff" />
+                </div>
+              </div>
+            </div>
           );
         })}
       </div>
 
-      {/* ── Masonry Grid (CSS columns) ── */}
-      <div style={{
-        columns: "3 280px",
-        columnGap: 16,
-        margin: "0 auto",
-      }}>
-        {filtered.map((image, index) => (
-          <div
-            key={`${activeCategory}-${image.src}`}
-            className="gallery-item"
-            style={{
-              breakInside: "avoid",
-              marginBottom: 16,
-              borderRadius: 18,
-              overflow: "hidden",
-              position: "relative",
-              cursor: "pointer",
-              animationDelay: `${index * 60}ms`,
-              boxShadow: hoveredIdx === index
-                ? "0 16px 48px rgba(0,0,0,0.18)"
-                : "0 2px 14px rgba(0,0,0,0.08)",
-              transform: hoveredIdx === index ? "scale(1.015)" : "scale(1)",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-            }}
-            onClick={() => setLightboxIndex(index)}
-            onMouseEnter={() => setHoveredIdx(index)}
-            onMouseLeave={() => setHoveredIdx(null)}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={800}
-              height={image.span === "tall" ? 800 : image.span === "wide" ? 500 : 640}
-              style={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-                transform: hoveredIdx === index ? "scale(1.06)" : "scale(1)",
-                transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
-              }}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-
-            {/* Hover overlay */}
-            <div style={{
-              position: "absolute", inset: 0,
-              background: "linear-gradient(to top, rgba(13,13,13,0.75) 0%, transparent 55%)",
-              opacity: hoveredIdx === index ? 1 : 0,
-              transition: "opacity 0.3s ease",
-              display: "flex", flexDirection: "column",
-              justifyContent: "flex-end", alignItems: "flex-start",
-              padding: "16px 14px",
-            }}>
-              {/* Category chip */}
-              <span style={{
-                display: "inline-block",
-                padding: "3px 10px", borderRadius: 999,
-                background: "rgba(233,30,140,0.85)",
-                fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700,
-                color: "#fff", marginBottom: 6, letterSpacing: "0.05em",
-              }}>
-                {image.category}
-              </span>
-              <span style={{
-                fontFamily: "Inter, sans-serif", fontSize: 12,
-                color: "rgba(255,255,255,0.75)", lineHeight: 1.4,
-              }}>
-                {image.alt}
-              </span>
-            </div>
-
-            {/* Zoom icon centre */}
-            <div style={{
-              position: "absolute",
-              top: "50%", left: "50%",
-              transform: hoveredIdx === index
-                ? "translate(-50%, -50%) scale(1)"
-                : "translate(-50%, -50%) scale(0.7)",
-              width: 44, height: 44, borderRadius: "50%",
-              background: "rgba(255,255,255,0.18)",
-              backdropFilter: "blur(8px)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              opacity: hoveredIdx === index ? 1 : 0,
-              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-            }}>
-              <ZoomIn size={20} color="#fff" />
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* ── Lightbox ── */}
+      {/* ── Fully Animated Lightbox ── */}
       {lightboxIndex !== null && (
         <div
+          ref={lightboxRef}
           style={{
-            position: "fixed", inset: 0, zIndex: 9999,
-            background: "rgba(0,0,0,0.92)",
-            backdropFilter: "blur(16px)",
-            display: "flex", flexDirection: "column",
-            alignItems: "center", justifyContent: "center",
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            background: "rgba(10, 5, 8, 0.94)",
+            backdropFilter: "blur(18px)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            opacity: 0, // Animated on mount
           }}
-          onClick={() => setLightboxIndex(null)}
+          onClick={closeLightbox}
         >
-          {/* Close */}
+          {/* Close Button */}
           <button
-            onClick={() => setLightboxIndex(null)}
+            onClick={closeLightbox}
             aria-label="Close"
             style={{
-              position: "absolute", top: 20, right: 20,
-              width: 44, height: 44, borderRadius: "50%",
-              background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              cursor: "pointer", color: "#fff", transition: "background 0.2s",
+              position: "absolute",
+              top: 24,
+              right: 24,
+              width: "48px",
+              height: "48px",
+              borderRadius: "50%",
+              background: "rgba(255, 255, 255, 0.08)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              color: "#fff",
+              transition: "all 0.2s",
+              zIndex: 10,
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.2)")}
-            onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(183, 110, 121, 0.35)";
+              e.currentTarget.style.borderColor = "rgba(183, 110, 121, 0.5)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
+            }}
           >
             <X size={20} />
           </button>
 
-          {/* Prev */}
+          {/* Navigation - Prev */}
           <button
-            onClick={e => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + filtered.length) % filtered.length); }}
+            onClick={(e) => navigateLightbox("prev", e)}
             aria-label="Previous"
             style={{
-              position: "absolute", left: 20, top: "50%", transform: "translateY(-50%)",
-              width: 48, height: 48, borderRadius: "50%",
-              background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              cursor: "pointer", color: "#fff", transition: "background 0.2s",
+              position: "absolute",
+              left: 24,
+              top: "50%",
+              transform: "translateY(-50%)",
+              width: "52px",
+              height: "52px",
+              borderRadius: "50%",
+              background: "rgba(255, 255, 255, 0.08)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              color: "#fff",
+              transition: "all 0.2s",
+              zIndex: 10,
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = "rgba(233,30,140,0.5)")}
-            onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(183, 110, 121, 0.35)";
+              e.currentTarget.style.borderColor = "rgba(183, 110, 121, 0.5)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
+            }}
           >
             <ChevronLeft size={24} />
           </button>
 
-          {/* Image */}
+          {/* Core Image Showcase & Caption */}
           <div
-            className="lightbox-img"
-            style={{ maxWidth: "88vw", maxHeight: "82vh", display: "flex", flexDirection: "column", alignItems: "center" }}
-            onClick={e => e.stopPropagation()}
+            className="lightbox-img-el"
+            style={{
+              maxWidth: "85vw",
+              maxHeight: "80vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              transform: "scale(0.9)", // Animated on mount
+            }}
+            onClick={(e) => e.stopPropagation()}
           >
             <Image
-              key={lightboxIndex}
-              src={filtered[lightboxIndex].src}
-              alt={filtered[lightboxIndex].alt}
+              src={galleryImages[lightboxIndex].src}
+              alt={galleryImages[lightboxIndex].alt}
               width={1200}
               height={900}
               style={{
-                width: "auto", height: "auto",
-                maxWidth: "88vw", maxHeight: "74vh",
-                borderRadius: 20,
+                width: "auto",
+                height: "auto",
+                maxWidth: "85vw",
+                maxHeight: "70vh",
+                borderRadius: "24px",
                 objectFit: "contain",
-                boxShadow: "0 30px 80px rgba(0,0,0,0.5)",
+                boxShadow: "0 25px 60px rgba(0, 0, 0, 0.6)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
               }}
-              sizes="88vw"
+              sizes="85vw"
+              priority
             />
-            <div style={{
-              marginTop: 16, textAlign: "center",
-            }}>
-              <span style={{
-                display: "inline-block",
-                padding: "4px 14px", borderRadius: 999,
-                background: "rgba(233,30,140,0.75)",
-                fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700,
-                color: "#fff", marginBottom: 6,
-              }}>
-                {filtered[lightboxIndex].category}
+
+            {/* Description Area */}
+            <div
+              className="lightbox-text-el"
+              style={{
+                marginTop: "20px",
+                textAlign: "center",
+                maxWidth: "600px",
+              }}
+            >
+              <span
+                style={{
+                  display: "inline-block",
+                  padding: "4px 12px",
+                  borderRadius: 999,
+                  background: "rgba(183, 110, 121, 0.8)",
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  color: "#fff",
+                  marginBottom: "8px",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                {galleryImages[lightboxIndex].category}
               </span>
-              <p style={{
-                fontFamily: "Inter, sans-serif", fontSize: 13,
-                color: "rgba(255,255,255,0.55)", margin: "4px 0 0",
-              }}>
-                {filtered[lightboxIndex].alt}
-              </p>
-              <p style={{
-                fontFamily: "Inter, sans-serif", fontSize: 12,
-                color: "rgba(255,255,255,0.3)", margin: "4px 0 0",
-              }}>
-                {lightboxIndex + 1} / {filtered.length}
+              <h4
+                style={{
+                  fontFamily: "Playfair Display, Georgia, serif",
+                  fontSize: "1.6rem",
+                  fontWeight: 700,
+                  color: "#fff",
+                  margin: "0 0 6px",
+                }}
+              >
+                {galleryImages[lightboxIndex].title}
+              </h4>
+              <p
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "14px",
+                  color: "rgba(255,255,255,0.65)",
+                  lineHeight: 1.5,
+                  margin: "4px 0 0",
+                }}
+              >
+                {galleryImages[lightboxIndex].description}
               </p>
             </div>
           </div>
 
-          {/* Next */}
+          {/* Navigation - Next */}
           <button
-            onClick={e => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % filtered.length); }}
+            onClick={(e) => navigateLightbox("next", e)}
             aria-label="Next"
             style={{
-              position: "absolute", right: 20, top: "50%", transform: "translateY(-50%)",
-              width: 48, height: 48, borderRadius: "50%",
-              background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              cursor: "pointer", color: "#fff", transition: "background 0.2s",
+              position: "absolute",
+              right: 24,
+              top: "50%",
+              transform: "translateY(-50%)",
+              width: "52px",
+              height: "52px",
+              borderRadius: "50%",
+              background: "rgba(255, 255, 255, 0.08)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              color: "#fff",
+              transition: "all 0.2s",
+              zIndex: 10,
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = "rgba(233,30,140,0.5)")}
-            onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(183, 110, 121, 0.35)";
+              e.currentTarget.style.borderColor = "rgba(183, 110, 121, 0.5)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
+            }}
           >
             <ChevronRight size={24} />
           </button>

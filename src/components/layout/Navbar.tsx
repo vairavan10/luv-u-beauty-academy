@@ -25,7 +25,6 @@ const links = [
   { label: "Courses", href: "/courses", dropdown: true },
   { label: "Gallery", href: "/gallery" },
   { label: "Testimonials", href: "/testimonials" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -48,11 +47,20 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  useEffect(() => {
+  /*
+   * Close every menu when the route changes.
+   * Done by adjusting state during render rather than in an effect — calling
+   * setState synchronously inside an effect triggers a second render pass on
+   * every navigation, and trips the react-hooks/set-state-in-effect rule which
+   * fails CI. See https://react.dev/learn/you-might-not-need-an-effect
+   */
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
     setMobileOpen(false);
     setShowDrop(false);
     setMobileCourses(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";

@@ -4,6 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { Check } from "lucide-react";
 
+const WHATSAPP_NUMBER = "919487992728";
+
 const courseOptions = [
   "Professional Beautician Course",
   "Bridal Makeup Course",
@@ -64,7 +66,12 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [focused, setFocused] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  /**
+   * Set when the browser blocked our WhatsApp tab. We must never show the
+   * success screen in that case — the enquiry did not actually go anywhere,
+   * so we surface a real link for the user to tap instead.
+   */
+  const [blockedUrl, setBlockedUrl] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
 
@@ -97,7 +104,7 @@ export default function ContactForm() {
     return e;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) {
@@ -109,14 +116,40 @@ export default function ContactForm() {
       });
       return;
     }
-    setLoading(true);
-    /* Simulate brief delay for UX */
-    await new Promise(r => setTimeout(r, 800));
+
     const msg = encodeURIComponent(
       `Hi! I'm enquiring from the Luv U Beauty Academy website.\n\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email || "N/A"}\nCourse: ${form.course}\nMessage: ${form.message || "N/A"}`
     );
-    window.open(`https://wa.me/919487992728?text=${msg}`, "_blank");
-    setLoading(false);
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+
+    /*
+     * Open WhatsApp SYNCHRONOUSLY, before any await.
+     * Browsers only honour window.open() while the user activation from the
+     * click is still live. Awaiting anything first (we used to await an
+     * artificial 800ms delay here) drops that activation, and Safari, iOS and
+     * every popup blocker silently refuse the call — the visitor saw a
+     * "thank you" screen while nothing had been sent.
+     */
+    const win = window.open(waUrl, "_blank", "noopener,noreferrer");
+
+    /*
+     * Record the lead server-side too, so an abandoned or blocked WhatsApp
+     * handoff doesn't lose it. Deliberately fire-and-forget: it must never
+     * block or fail the WhatsApp flow, which is the primary path.
+     */
+    void fetch("/api/enquiry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+      keepalive: true,
+    }).catch(() => {});
+
+    if (!win || win.closed) {
+      /* Popup blocked — tell the truth and give them something to tap. */
+      setBlockedUrl(waUrl);
+      return;
+    }
+
     setSubmitted(true);
   };
 
@@ -125,6 +158,53 @@ export default function ContactForm() {
     setForm(p => ({ ...p, [name]: value }));
     if (errors[name as keyof FormData]) setErrors(p => ({ ...p, [name]: undefined }));
   };
+
+  /* ─── Popup-blocked screen: the enquiry has NOT been handed off yet ─── */
+  if (blockedUrl) {
+    return (
+      <div style={{ textAlign: "center", padding: "32px 16px" }}>
+        <div style={{
+          width: 60, height: 60, margin: "0 auto 22px", borderRadius: "50%",
+          background: "rgba(233,30,140,0.1)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" strokeWidth="2" strokeLinecap="round">
+            <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12" y2="16.01" />
+          </svg>
+        </div>
+        <h3 style={{
+          fontFamily: "Playfair Display,serif", fontWeight: 800,
+          fontSize: 22, color: "#0D0D0D", margin: "0 0 10px",
+        }}>One more tap, {form.name}</h3>
+        <p style={{ fontFamily: "Inter,sans-serif", fontSize: 15, color: "#6B7280", margin: "0 0 24px", lineHeight: 1.6 }}>
+          Your browser blocked the WhatsApp window. Tap below to send your
+          enquiry — your details are already filled in.
+        </p>
+        <a
+          href={blockedUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setTimeout(() => { setBlockedUrl(null); setSubmitted(true); }, 400)}
+          style={{
+            display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 10,
+            padding: "15px 32px", borderRadius: 14,
+            background: "linear-gradient(135deg, #E91E8C, #C2185B)",
+            color: "#fff", textDecoration: "none",
+            fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 16,
+            boxShadow: "0 6px 24px rgba(233,30,140,0.3)",
+          }}
+        >
+          Open WhatsApp
+        </a>
+        <p style={{ fontFamily: "Inter,sans-serif", fontSize: 13, color: "#9CA3AF", marginTop: 18, lineHeight: 1.6 }}>
+          Or call us directly on{" "}
+          <a href={`tel:+${WHATSAPP_NUMBER}`} style={{ color: "#E91E8C", fontWeight: 600 }}>
+            +91 94879 92728
+          </a>
+        </p>
+      </div>
+    );
+  }
 
   /* ─── Success screen ─── */
   if (submitted) {
@@ -166,7 +246,7 @@ export default function ContactForm() {
           Your enquiry is on its way to WhatsApp. We reply within minutes!
         </p>
         <button
-          onClick={() => { setSubmitted(false); setForm({ name: "", phone: "", email: "", course: "", message: "" }); }}
+          onClick={() => { setSubmitted(false); setBlockedUrl(null); setForm({ name: "", phone: "", email: "", course: "", message: "" }); }}
           style={{
             padding: "11px 28px", borderRadius: 10,
             border: "1.5px solid #E5E7EB", background: "#fff",
@@ -255,35 +335,22 @@ export default function ContactForm() {
           onMouseDown={onBtnDown}
           onMouseUp={onBtnUp}
           onMouseLeave={onBtnUp}
-          disabled={loading}
           style={{
             width: "100%", padding: "15px 24px", borderRadius: 14,
-            background: loading ? "#F3F4F6" : "linear-gradient(135deg, #E91E8C, #C2185B)",
-            color: loading ? "#9CA3AF" : "#fff",
-            border: "none", cursor: loading ? "not-allowed" : "pointer",
+            background: "linear-gradient(135deg, #E91E8C, #C2185B)",
+            color: "#fff",
+            border: "none", cursor: "pointer",
             fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 16,
             display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-            boxShadow: loading ? "none" : "0 6px 24px rgba(233,30,140,0.3)",
+            boxShadow: "0 6px 24px rgba(233,30,140,0.3)",
             transition: "background 0.3s, box-shadow 0.3s",
           }}
         >
-          {loading ? (
-            <>
-              <div style={{ display: "flex", gap: 4, alignItems: "center", height: 24 }}>
-                <span className="dot-bounce" style={{ width: 6, height: 6, borderRadius: "50%", background: "#9CA3AF", animationDelay: "0s" }} />
-                <span className="dot-bounce" style={{ width: 6, height: 6, borderRadius: "50%", background: "#9CA3AF", animationDelay: "0.15s" }} />
-                <span className="dot-bounce" style={{ width: 6, height: 6, borderRadius: "50%", background: "#9CA3AF", animationDelay: "0.3s" }} />
-              </div>
-              Sending…
-            </>
-          ) : (
-            <>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          {/* No async gate before the click opens WhatsApp — see handleSubmit. */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
               </svg>
-              Send Enquiry via WhatsApp
-            </>
-          )}
+          Send Enquiry via WhatsApp
         </button>
         <p style={{
           fontFamily: "Inter,sans-serif", fontSize: 12,
@@ -306,13 +373,6 @@ export default function ContactForm() {
         @keyframes success-check {
           0% { transform: scale(0.5); opacity: 0; }
           100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes dot-bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-4px); }
-        }
-        .dot-bounce {
-          animation: dot-bounce 0.8s ease-in-out infinite;
         }
         @media (max-width: 560px) {
           .form-row { grid-template-columns: 1fr !important; }

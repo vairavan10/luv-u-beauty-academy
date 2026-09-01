@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { stats } from "@/data/stats";
 
 const PHONE = "9487992728";
 const WA = `https://wa.me/91${PHONE}?text=Hi! I'd like to enquire about courses at Luv U Beauty Academy.`;
@@ -18,7 +19,6 @@ const quickLinks = [
   { label: "All Courses", href: "/courses" },
   { label: "Gallery", href: "/gallery" },
   { label: "Testimonials", href: "/testimonials" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -83,10 +83,10 @@ export default function Footer() {
             className="grid grid-cols-2 md:grid-cols-4"
           >
             {[
-              { v: "100+", l: "Students Trained" },
-              { v: "10+", l: "Years of Excellence" },
-              { v: "100%", l: "Placement Rate" },
-              { v: "4.9★", l: "Google Rating" },
+              { v: stats.studentsTrained, l: "Students Trained" },
+              { v: stats.yearsActive, l: "Years of Excellence" },
+              { v: stats.placement, l: stats.placementLabel },
+              { v: `${stats.googleRating}★`, l: "Google Rating" },
             ].map(s => (
               <div key={s.l} style={{ textAlign: "center", padding: "8px 0" }}>
                 <p style={{

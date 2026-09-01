@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import GalleryClient from "./GalleryClient";
 
 export const metadata: Metadata = {
-  title: "Gallery | Student Work & Transformations | Luv U Beauty Academy Tanjore",
+  title: "Gallery | Inside Our Academy | Luv U Beauty Academy Tanjore",
   description:
-    "Browse the stunning makeup transformations, bridal looks, hair styling, nail art, and student work from Luv U Beauty Academy in Tanjore, Thanjavur.",
+    "See inside Luv U Beauty Academy in Tanjore, Thanjavur — our live practical classes, our training premises, and our students on certification day.",
   alternates: { canonical: "https://luvubeautyacademy.com/gallery" },
 };
 
@@ -44,7 +44,7 @@ export default function GalleryPage() {
             letterSpacing: "0.18em", textTransform: "uppercase" as const,
             color: "#ff77c0", marginBottom: 24,
           }}>
-            ✦ Our Work
+            ✦ Inside The Academy
           </span>
 
           <h1 style={{
@@ -74,17 +74,19 @@ export default function GalleryPage() {
             color: "rgba(255,255,255,0.6)",
             maxWidth: 560, margin: "0 auto 32px",
           }}>
-            Witness the stunning transformations created by our talented students.
-            Every image tells a story of skill, dedication, and artistry.
+            Real photos from inside Luv U Beauty Academy — our live practical
+            classes, our academy in Thanjavur, and the students who graduated
+            from it.
           </p>
 
           {/* Quick stat row */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
             {[
-              { icon: "🎨", text: "12+ Works" },
-              { icon: "💍", text: "Bridal Looks" },
-              { icon: "💇", text: "Hair Styling" },
-              { icon: "💅", text: "Nail Art" },
+              { icon: "👩‍🏫", text: "Live Classes" },
+              { icon: "✋", text: "Hands-On Practice" },
+              { icon: "🏫", text: "Our Academy" },
+              { icon: "🎓", text: "Certification Days" },
+              { icon: "📍", text: "Thanjavur" },
             ].map(b => (
               <span key={b.text} style={{
                 display: "inline-flex", alignItems: "center", gap: 7,
@@ -127,7 +129,7 @@ export default function GalleryPage() {
             fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)",
             color: "#fff", margin: "0 0 14px", letterSpacing: "-0.025em",
           }}>
-            Create Looks Like These
+            Train Where These Photos Were Taken
           </h2>
           <p style={{
             fontFamily: "Inter,sans-serif", fontSize: 16,

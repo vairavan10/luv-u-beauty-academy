@@ -5,56 +5,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { X, ZoomIn } from "lucide-react";
+import { galleryImages } from "@/data/gallery";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const galleryImages = [
-  {
-    src: "https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=600",
-    alt: "Professional bridal makeup transformation at Luv U Beauty Academy Tanjore",
-    category: "Bridal Makeup",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600",
-    alt: "Students learning professional makeup techniques at Luv U Beauty Academy",
-    category: "Training",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600",
-    alt: "Bridal look created by Luv U Beauty Academy students",
-    category: "Bridal Look",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600",
-    alt: "Hair styling practice session at Luv U Beauty Academy Tanjore",
-    category: "Hair Styling",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600",
-    alt: "Nail art creation by students at Luv U Beauty Academy",
-    category: "Nail Art",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600",
-    alt: "Skin care treatment practice at Luv U Beauty Academy",
-    category: "Skin Care",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600",
-    alt: "Student receiving certificate at Luv U Beauty Academy Tanjore",
-    category: "Certification",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600",
-    alt: "Modern salon setup at Luv U Beauty Academy",
-    category: "Academy",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600",
-    alt: "Student makeup transformation at Luv U Beauty Academy Tanjore",
-    category: "Makeup",
-  },
-];
 
 export default function GallerySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -116,10 +69,10 @@ export default function GallerySection() {
         {/* Header */}
         <div className="gallery-header text-center mb-12 opacity-0">
           <span className="inline-block px-4 py-1.5 rounded-full bg-blush text-rose-gold text-xs font-body font-semibold tracking-wider uppercase mb-4">
-            ✦ Our Work
+            ✦ Inside The Academy
           </span>
           <h2 id="gallery-heading" className="font-display font-bold text-charcoal mb-4">
-            Student{" "}
+            Our{" "}
             <span
               style={{
                 backgroundImage: "linear-gradient(135deg, #B76E79, #C9A96E)",
@@ -128,12 +81,12 @@ export default function GallerySection() {
                 backgroundClip: "text",
               }}
             >
-              Transformations
+              Classrooms
             </span>{" "}
-            & Gallery
+            & Students
           </h2>
           <p className="font-body text-gray-500 text-lg max-w-xl mx-auto">
-            See the stunning work created by our talented students at Luv U Beauty Academy.
+            Real photos from our training sessions, our academy in Thanjavur, and our certification days.
           </p>
         </div>
 

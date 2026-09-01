@@ -106,7 +106,7 @@ export default function FinalCTA() {
           fontSize: 16, lineHeight: 1.75,
           maxWidth: 460, margin: "0 auto 44px", textAlign: "center",
         }}>
-          Join thousands of successful graduates from Tanjore and Tamil Nadu. Your transformation starts with a single step.
+          Join our growing community of graduates across Tanjore and Tamil Nadu. Your transformation starts with a single step.
         </p>
 
         {/* Buttons */}

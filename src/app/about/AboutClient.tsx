@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { stats } from "@/data/stats";
 
 const values = [
   {
@@ -39,9 +40,9 @@ const milestones = [
 ];
 
 const achievements = [
-  { number: "100+", label: "Students Trained", labelTamil: "மாணவர்கள்", color: "#E91E8C" },
-  { number: "8+", label: "Years of Excellence", labelTamil: "ஆண்டுகள்", color: "#C9A96E" },
-  { number: "100%", label: "Placement Support", labelTamil: "வேலைவாய்ப்பு", color: "#B76E79" },
+  { number: stats.studentsTrained, label: "Students Trained", labelTamil: "மாணவர்கள்", color: "#E91E8C" },
+  { number: stats.yearsActive, label: "Years of Excellence", labelTamil: "ஆண்டுகள்", color: "#C9A96E" },
+  { number: stats.placement, label: stats.placementLabel, labelTamil: "வேலைவாய்ப்பு", color: "#B76E79" },
   { number: "1st", label: "In Thanjavur", labelTamil: "தஞ்சாவூரில்", color: "#25D366" },
 ];
 

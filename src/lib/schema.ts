@@ -58,13 +58,11 @@ export const localBusinessSchema = {
       },
     ],
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "500",
-    bestRating: "5",
-    worstRating: "1",
-  },
+  // NOTE: No `aggregateRating` here on purpose.
+  // Google's structured-data policy requires ratings to be genuine, verifiable
+  // and visible on the same page. Self-declared ratings with no underlying
+  // reviews can trigger a manual action that removes ALL rich results for the
+  // site. Add this back only when real, on-page reviews exist to support it.
 };
 
 export const faqSchema = (faqs: { question: string; answer: string }[]) => ({

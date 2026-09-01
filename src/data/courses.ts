@@ -28,7 +28,7 @@ export const courses: Course[] = [
       "A comprehensive program covering all aspects of beauty therapy. Learn skincare, makeup, hair styling, nail care, and salon management with hands-on practical sessions.",
     shortDescription:
       "Master all beauty therapy skills with our flagship 6-month program.",
-    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800",
+    image: "/courses/professional-beautician-course.webp",
     icon: "✨",
     price: "Contact for Fees",
     curriculum: [
@@ -61,7 +61,7 @@ export const courses: Course[] = [
       "Specialize in bridal beauty with this intensive course covering traditional South Indian bridal looks, modern airbrush makeup, and complete bridal packages.",
     shortDescription:
       "Become a sought-after bridal makeup artist in Tanjore and beyond.",
-    image: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800",
+    image: "/courses/bridal-makeup-course.webp",
     icon: "💍",
     price: "Contact for Fees",
     curriculum: [
@@ -94,7 +94,7 @@ export const courses: Course[] = [
       "Learn cutting-edge hair styling techniques from basic cuts to advanced coloring, keratin treatments, and modern updos for every occasion.",
     shortDescription:
       "Master professional hair cutting, coloring, and styling techniques.",
-    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800",
+    image: "/courses/hair-styling-course.webp",
     icon: "💇",
     price: "Contact for Fees",
     curriculum: [
@@ -127,7 +127,7 @@ export const courses: Course[] = [
       "Explore the creative world of nail art with gel extensions, acrylic nails, intricate nail designs, and nail care techniques loved by clients everywhere.",
     shortDescription:
       "Create stunning nail designs with our creative nail art program.",
-    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800",
+    image: "/courses/nail-art-course.webp",
     icon: "💅",
     price: "Contact for Fees",
     curriculum: [
@@ -160,7 +160,7 @@ export const courses: Course[] = [
       "Deep dive into professional skincare with facial treatments, chemical peels, microdermabrasion, and modern skin analysis techniques.",
     shortDescription:
       "Professional skincare treatments and facial therapy mastery.",
-    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800",
+    image: "/courses/skin-care-training.webp",
     icon: "🌸",
     price: "Contact for Fees",
     curriculum: [
@@ -193,7 +193,7 @@ export const courses: Course[] = [
       "Learn to run a profitable salon with business skills, client management, staff training, inventory control, and digital marketing for beauty businesses.",
     shortDescription:
       "Build and manage your own successful salon business confidently.",
-    image: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800",
+    image: "/courses/salon-management-course.webp",
     icon: "🏆",
     price: "Contact for Fees",
     curriculum: [
@@ -226,7 +226,7 @@ export const courses: Course[] = [
       "Take your makeup skills to a professional level with editorial, HD, airbrush, special effects, and film makeup techniques used by industry professionals.",
     shortDescription:
       "Professional-level makeup artistry for editorial, film, and events.",
-    image: "https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=800",
+    image: "/courses/advanced-makeup-course.webp",
     icon: "🎨",
     price: "Contact for Fees",
     curriculum: [

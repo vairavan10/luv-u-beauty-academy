@@ -8,9 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   { number: 100, suffix: "+", label: "Students Trained", sub: "Across Tanjore & Tamil Nadu" },
-  { number: 10, suffix: "+", label: "Years of Excellence", sub: "Premium beauty education" },
+  { number: 8, suffix: "+", label: "Years of Excellence", sub: "Premium beauty education" },
   { number: 100, suffix: "+", label: "Certificates Issued", sub: "Govt. recognized credentials" },
-  { number: 100, suffix: "%", label: "Placement Rate", sub: "Career assistance & guidance" },
+  { number: 100, suffix: "%", label: "Placement Support", sub: "Career assistance & guidance" },
 ];
 
 const cities = [

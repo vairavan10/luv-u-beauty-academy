@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { stats } from "@/data/stats";
 import Link from "next/link";
 import { Star, Quote, BadgeCheck, ArrowRight, Infinity } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
@@ -6,15 +7,15 @@ import { testimonials } from "@/data/testimonials";
 export const metadata: Metadata = {
   title: "Student Testimonials | Reviews of Luv U Beauty Academy Tanjore",
   description:
-    "Read real reviews from students who trained at Luv U Beauty Academy in Tanjore. 4.9/5 rating with 500+ Google reviews. See how our courses changed their lives.",
+    "Read real reviews from students who trained at Luv U Beauty Academy in Tanjore. See how our beautician, bridal makeup and hair styling courses changed their lives.",
   alternates: { canonical: "https://luvubeautyacademy.com/testimonials" },
 };
 
-const stats = [
-  { number: "500+", label: "மாணவர்கள்", sublabel: "Trained students" },
-  { number: "4.9", label: "Google Rating", sublabel: "Verified reviews" },
-  { number: "100%", label: "Placement", sublabel: "Job support" },
-  { number: "8+", label: "ஆண்டுகள்", sublabel: "Years in Tanjore" },
+const pageStats = [
+  { number: stats.studentsTrained, label: "மாணவர்கள்", sublabel: "Trained students" },
+  { number: stats.googleRating, label: "Google Rating", sublabel: "On Google Business" },
+  { number: stats.placement, label: "Placement", sublabel: "Job support" },
+  { number: stats.yearsActive, label: "ஆண்டுகள்", sublabel: "Years in Tanjore" },
 ];
 
 // Pick two letters from a name for the avatar
@@ -112,12 +113,12 @@ export default function TestimonialsPage() {
             <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.15)" }} />
             <div style={{ textAlign: "left" }}>
               <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 13, color: "#fff", margin: "0 0 2px" }}>Google Rating</p>
-              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "rgba(255,255,255,0.45)", margin: 0 }}>500+ verified reviews</p>
+              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "rgba(255,255,255,0.45)", margin: 0 }}>On Google Business</p>
             </div>
             <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.15)" }} />
             <div style={{ textAlign: "left" }}>
-              <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 13, color: "#fff", margin: "0 0 2px" }}>100% Placement</p>
-              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "rgba(255,255,255,0.45)", margin: 0 }}>All batches placed</p>
+              <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 13, color: "#fff", margin: "0 0 2px" }}>100% Placement Support</p>
+              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "rgba(255,255,255,0.45)", margin: 0 }}>For every graduate</p>
             </div>
           </div>
         </div>
@@ -129,7 +130,7 @@ export default function TestimonialsPage() {
           maxWidth: 1280, margin: "0 auto",
           display: "grid", gridTemplateColumns: "repeat(4,1fr)",
         }}>
-          {stats.map((s, i) => (
+          {pageStats.map((s, i) => (
             <div key={s.label} style={{
               textAlign: "center", padding: "26px 16px",
               borderRight: i < 3 ? "1px solid #F3F4F6" : "none",
@@ -312,7 +313,7 @@ export default function TestimonialsPage() {
             Rated 4.9 / 5 on Google Reviews
           </p>
           <p style={{ fontFamily: "Inter,sans-serif", fontSize: 13, color: "#6B7280", margin: "0 0 22px", lineHeight: 1.7 }}>
-            500+ verified reviews · Tanjore, Thanjavur, Kumbakonam &amp; beyond<br />
+            Trusted by students across Tanjore, Thanjavur, Kumbakonam &amp; beyond<br />
             <span style={{ color: "#E91E8C", fontWeight: 600 }}>உண்மையான மாணவர்களின் உண்மையான வார்த்தைகள்.</span>
           </p>
           <a
