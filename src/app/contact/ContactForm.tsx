@@ -54,7 +54,9 @@ const inputStyle = (hasError: boolean, focused: boolean): React.CSSProperties =>
   borderRadius: 12,
   border: `1.5px solid ${hasError ? "#EF4444" : focused ? "#E91E8C" : "#E5E7EB"}`,
   background: focused ? "#FFF5F8" : "#FAFAFA",
-  fontFamily: "var(--font-body)", fontSize: 15, color: "#0D0D0D",
+  // 16px minimum: iOS Safari auto-zooms the whole page when a focused input
+  // has a font-size below 16px, which throws off the layout mid-enquiry.
+  fontFamily: "var(--font-body)", fontSize: 16, color: "#0D0D0D",
   outline: "none",
   transition: "border-color 0.2s, background 0.2s, box-shadow 0.2s",
   boxShadow: focused ? "0 0 0 3px rgba(233,30,140,0.08)" : "none",

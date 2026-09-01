@@ -79,9 +79,13 @@ export default function Footer() {
       {/* ══ STATS BAND ══ */}
       <div style={{ background: "linear-gradient(135deg, #C2185B 0%, #E91E8C 50%, #AD1457 100%)", padding: "48px 24px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }}
-            className="grid grid-cols-2 md:grid-cols-4"
-          >
+          {/*
+            No inline gridTemplateColumns here: an inline style beats Tailwind's
+            responsive classes, which pinned this to four ~71px columns on
+            phones and overflowed the container. The classes below own the
+            column count.
+          */}
+          <div style={{ gap: 24 }} className="grid grid-cols-2 md:grid-cols-4">
             {[
               { v: stats.studentsTrained, l: "Students Trained" },
               { v: stats.yearsActive, l: "Years of Excellence" },

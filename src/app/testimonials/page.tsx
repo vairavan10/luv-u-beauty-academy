@@ -97,7 +97,7 @@ export default function TestimonialsPage() {
           </p>
 
           {/* Rating pill */}
-          <div style={{
+          <div className="tm-rating-pill" style={{
             display: "inline-flex", alignItems: "center", gap: 20,
             padding: "16px 28px", borderRadius: 18,
             background: "rgba(255,255,255,0.06)",
@@ -110,12 +110,12 @@ export default function TestimonialsPage() {
                 {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#C9A96E" color="#C9A96E" />)}
               </div>
             </div>
-            <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.15)" }} />
+            <div className="tm-pill-divider" style={{ width: 1, height: 40, background: "rgba(255,255,255,0.15)" }} />
             <div style={{ textAlign: "left" }}>
               <p style={{ fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 13, color: "#fff", margin: "0 0 2px" }}>Google Rating</p>
               <p style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "rgba(255,255,255,0.45)", margin: 0 }}>On Google Business</p>
             </div>
-            <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.15)" }} />
+            <div className="tm-pill-divider" style={{ width: 1, height: 40, background: "rgba(255,255,255,0.15)" }} />
             <div style={{ textAlign: "left" }}>
               <p style={{ fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 13, color: "#fff", margin: "0 0 2px" }}>100% Placement Support</p>
               <p style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "rgba(255,255,255,0.45)", margin: 0 }}>For every graduate</p>
@@ -126,12 +126,15 @@ export default function TestimonialsPage() {
 
       {/* ── Stats Strip ── */}
       <section style={{ background: "#fff", borderBottom: "1px solid #F3F4F6" }}>
-        <div style={{
-          maxWidth: 1280, margin: "0 auto",
-          display: "grid", gridTemplateColumns: "repeat(4,1fr)",
-        }}>
+        <div
+          className="tm-stats-grid"
+          style={{
+            maxWidth: 1280, margin: "0 auto",
+            display: "grid", gridTemplateColumns: "repeat(4,1fr)",
+          }}
+        >
           {pageStats.map((s, i) => (
-            <div key={s.label} style={{
+            <div key={s.label} className="tm-stat-cell" style={{
               textAlign: "center", padding: "26px 16px",
               borderRight: i < 3 ? "1px solid #F3F4F6" : "none",
             }}>
@@ -145,6 +148,39 @@ export default function TestimonialsPage() {
             </div>
           ))}
         </div>
+        {/*
+          Four `1fr` columns cannot shrink below their content's min-width, so
+          on a 375px screen this strip measured 428px wide and the fourth stat
+          sat off-screen — unreachable, because body has overflow-x: hidden.
+          Collapse to 2 columns on phones. !important is required to beat the
+          inline grid-template-columns above.
+        */}
+        <style>{`
+          @media (max-width: 768px) {
+            .tm-stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .tm-stat-cell:nth-child(even) { border-right: none !important; }
+            .tm-stat-cell:nth-child(-n+2) { border-bottom: 1px solid #F3F4F6; }
+          }
+          /*
+            The hero pill packs three labelled blocks in a row. Below ~560px
+            they squeeze to ~90px each and every label wraps onto three lines,
+            so stack them and swap the vertical rules for horizontal ones.
+          */
+          @media (max-width: 560px) {
+            .tm-rating-pill {
+              display: flex !important;
+              flex-direction: column;
+              gap: 14px !important;
+              width: 100%;
+              padding: 20px !important;
+            }
+            .tm-rating-pill > div { text-align: center !important; }
+            .tm-pill-divider {
+              width: 100% !important;
+              height: 1px !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* ── Lifetime Service Banner ── */}

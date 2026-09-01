@@ -97,19 +97,27 @@ export default function Navbar() {
           padding: "0 24px",
           display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
-          <span style={{ color: "rgba(255,255,255,0.9)", fontSize: 12, fontFamily: "var(--font-body)" }}>
-            🌸 Tanjore&apos;s #1 Beauty Academy — Free Demo Class Available!
+          <span
+            className="anno-promo"
+            style={{
+              color: "rgba(255,255,255,0.9)", fontSize: 12, fontFamily: "var(--font-body)",
+              whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+            }}
+          >
+            {/* Short copy on phones — the full sentence cannot fit in 36px there. */}
+            <span className="anno-long">🌸 Tanjore&apos;s #1 Beauty Academy — Free Demo Class Available!</span>
+            <span className="anno-short">🌸 Free Demo Class Available!</span>
           </span>
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 16, flexShrink: 0 }}>
             <a href={`tel:+91${PHONE}`} style={{
               color: "rgba(255,255,255,0.92)", fontSize: 12,
               fontFamily: "var(--font-body)", fontWeight: 600,
-              display: "flex", alignItems: "center", gap: 6,
+              display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap",
             }}>
               <Phone size={11} color="white" /> +91 {PHONE}
             </a>
-            <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 11 }}>|</span>
-            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: 11, fontFamily: "var(--font-body)" }}>
+            <span className="anno-hours" style={{ color: "rgba(255,255,255,0.35)", fontSize: 11 }}>|</span>
+            <span className="anno-hours" style={{ color: "rgba(255,255,255,0.8)", fontSize: 11, fontFamily: "var(--font-body)", whiteSpace: "nowrap" }}>
               Mon–Sun · 9AM–9PM
             </span>
           </div>
@@ -418,6 +426,21 @@ export default function Navbar() {
           </a>
         </div>
       </div>
+
+      {/*
+        The announcement bar is a fixed 36px tall (the header offsets itself by
+        exactly that). On narrow screens the full promo sentence plus the phone
+        number and opening hours needed 55px, so the bar clipped its own text.
+        Drop the hours and shorten the promo instead of growing the bar.
+      */}
+      <style>{`
+        .anno-short { display: none; }
+        @media (max-width: 640px) {
+          .anno-long  { display: none; }
+          .anno-short { display: inline; }
+          .anno-hours { display: none !important; }
+        }
+      `}</style>
     </>
   );
 }
