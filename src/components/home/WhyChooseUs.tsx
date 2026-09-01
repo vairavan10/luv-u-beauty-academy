@@ -97,13 +97,13 @@ export default function WhyChooseUs() {
             {/* Left */}
             <div style={{ maxWidth: 520 }}>
               <span style={{
-                fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700,
+                fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
                 letterSpacing: "0.16em", textTransform: "uppercase", color: "#E91E8C",
                 display: "block", marginBottom: 16,
               }}>Why Choose Us</span>
 
               <h2 id="why-choose-heading" style={{
-                fontFamily: "Playfair Display, serif",
+                fontFamily: "var(--font-display)",
                 fontWeight: 800, fontSize: "clamp(2rem, 4vw, 3.2rem)",
                 color: "#0D0D0D", letterSpacing: "-0.03em", lineHeight: 1.15,
                 margin: "0 0 20px",
@@ -116,7 +116,7 @@ export default function WhyChooseUs() {
               </h2>
 
               <p style={{
-                fontFamily: "Inter, sans-serif", color: "#6B7280",
+                fontFamily: "var(--font-body)", color: "#6B7280",
                 fontSize: 16, lineHeight: 1.75, margin: 0,
               }}>
                 We don&apos;t just teach — we transform. Six reasons why our students choose Luv U over every other academy in Thanjavur.
@@ -129,12 +129,12 @@ export default function WhyChooseUs() {
               paddingLeft: 24, alignSelf: "center",
             }}>
               <p style={{
-                fontFamily: "Playfair Display, serif",
+                fontFamily: "var(--font-display)",
                 fontWeight: 900, fontSize: "3rem",
                 color: "#0D0D0D", margin: "0 0 4px", lineHeight: 1, letterSpacing: "-0.04em",
               }}>10+</p>
               <p style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "var(--font-body)",
                 fontSize: 13, fontWeight: 500, color: "#9CA3AF", margin: 0,
               }}>Years of excellence<br />in Tanjore</p>
             </div>
@@ -178,14 +178,14 @@ export default function WhyChooseUs() {
 
               {/* Title */}
               <h3 style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 600, fontSize: 17, color: "#0D0D0D",
                 margin: "0 0 10px", lineHeight: 1.35,
               }}>{title}</h3>
 
               {/* Description */}
               <p style={{
-                fontFamily: "Inter, sans-serif", color: "#6B7280",
+                fontFamily: "var(--font-body)", color: "#6B7280",
                 fontSize: 14, lineHeight: 1.7, margin: "0 0 20px",
               }}>{description}</p>
 
@@ -197,7 +197,7 @@ export default function WhyChooseUs() {
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span style={{
-                      fontFamily: "Inter, sans-serif",
+                      fontFamily: "var(--font-body)",
                       fontSize: 13, color: "#4B5563", fontWeight: 500,
                     }}>{pt}</span>
                   </div>
@@ -222,12 +222,12 @@ export default function WhyChooseUs() {
         >
           <div>
             <p style={{
-              fontFamily: "Playfair Display, serif",
+              fontFamily: "var(--font-display)",
               fontWeight: 700, fontSize: "clamp(1.2rem,2.5vw,1.6rem)",
               color: "#0D0D0D", margin: "0 0 6px", lineHeight: 1.3,
             }}>Book a Free Demo Class</p>
             <p style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: "var(--font-body)",
               fontSize: 14, color: "#6B7280", margin: 0,
             }}>Experience our training quality firsthand. No commitment required.</p>
           </div>
@@ -240,7 +240,7 @@ export default function WhyChooseUs() {
                 display: "inline-flex", alignItems: "center", gap: 8,
                 padding: "13px 24px", borderRadius: 10,
                 background: "#E91E8C", color: "#fff",
-                fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 14,
+                fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 14,
                 textDecoration: "none", whiteSpace: "nowrap",
                 transition: "opacity 0.2s, transform 0.2s",
               }}
@@ -259,7 +259,7 @@ export default function WhyChooseUs() {
                 padding: "13px 24px", borderRadius: 10,
                 border: "1.5px solid #E5E7EB",
                 color: "#374151", background: "#fff",
-                fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 14,
+                fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 14,
                 textDecoration: "none", whiteSpace: "nowrap",
                 transition: "border-color 0.2s, color 0.2s",
               }}

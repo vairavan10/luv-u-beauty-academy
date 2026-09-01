@@ -28,7 +28,7 @@ function Field({
   return (
     <div>
       <label htmlFor={id} style={{
-        display: "block", fontFamily: "Inter,sans-serif",
+        display: "block", fontFamily: "var(--font-body)",
         fontSize: 12, fontWeight: 600, letterSpacing: "0.04em",
         color: "#6B7280", marginBottom: 7, textTransform: "uppercase",
       }}>
@@ -37,7 +37,7 @@ function Field({
       {children}
       {error && (
         <p style={{
-          fontFamily: "Inter,sans-serif", fontSize: 12,
+          fontFamily: "var(--font-body)", fontSize: 12,
           color: "#EF4444", marginTop: 5,
           display: "flex", alignItems: "center", gap: 5,
         }}>
@@ -54,7 +54,7 @@ const inputStyle = (hasError: boolean, focused: boolean): React.CSSProperties =>
   borderRadius: 12,
   border: `1.5px solid ${hasError ? "#EF4444" : focused ? "#E91E8C" : "#E5E7EB"}`,
   background: focused ? "#FFF5F8" : "#FAFAFA",
-  fontFamily: "Inter,sans-serif", fontSize: 15, color: "#0D0D0D",
+  fontFamily: "var(--font-body)", fontSize: 15, color: "#0D0D0D",
   outline: "none",
   transition: "border-color 0.2s, background 0.2s, box-shadow 0.2s",
   boxShadow: focused ? "0 0 0 3px rgba(233,30,140,0.08)" : "none",
@@ -173,10 +173,10 @@ export default function ContactForm() {
           </svg>
         </div>
         <h3 style={{
-          fontFamily: "Playfair Display,serif", fontWeight: 800,
+          fontFamily: "var(--font-display)", fontWeight: 800,
           fontSize: 22, color: "#0D0D0D", margin: "0 0 10px",
         }}>One more tap, {form.name}</h3>
-        <p style={{ fontFamily: "Inter,sans-serif", fontSize: 15, color: "#6B7280", margin: "0 0 24px", lineHeight: 1.6 }}>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#6B7280", margin: "0 0 24px", lineHeight: 1.6 }}>
           Your browser blocked the WhatsApp window. Tap below to send your
           enquiry — your details are already filled in.
         </p>
@@ -190,13 +190,13 @@ export default function ContactForm() {
             padding: "15px 32px", borderRadius: 14,
             background: "linear-gradient(135deg, #E91E8C, #C2185B)",
             color: "#fff", textDecoration: "none",
-            fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 16,
+            fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 16,
             boxShadow: "0 6px 24px rgba(233,30,140,0.3)",
           }}
         >
           Open WhatsApp
         </a>
-        <p style={{ fontFamily: "Inter,sans-serif", fontSize: 13, color: "#9CA3AF", marginTop: 18, lineHeight: 1.6 }}>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "#9CA3AF", marginTop: 18, lineHeight: 1.6 }}>
           Or call us directly on{" "}
           <a href={`tel:+${WHATSAPP_NUMBER}`} style={{ color: "#E91E8C", fontWeight: 600 }}>
             +91 94879 92728
@@ -239,10 +239,10 @@ export default function ContactForm() {
           </div>
         </div>
         <h3 style={{
-          fontFamily: "Playfair Display,serif", fontWeight: 800,
+          fontFamily: "var(--font-display)", fontWeight: 800,
           fontSize: 24, color: "#0D0D0D", margin: "0 0 10px",
         }}>Thank you, {form.name}! 🎉</h3>
-        <p style={{ fontFamily: "Inter,sans-serif", fontSize: 15, color: "#6B7280", margin: "0 0 28px", lineHeight: 1.6 }}>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#6B7280", margin: "0 0 28px", lineHeight: 1.6 }}>
           Your enquiry is on its way to WhatsApp. We reply within minutes!
         </p>
         <button
@@ -250,7 +250,7 @@ export default function ContactForm() {
           style={{
             padding: "11px 28px", borderRadius: 10,
             border: "1.5px solid #E5E7EB", background: "#fff",
-            fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 14,
+            fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 14,
             color: "#374151", cursor: "pointer",
             transition: "border-color 0.2s, color 0.2s",
           }}
@@ -340,7 +340,7 @@ export default function ContactForm() {
             background: "linear-gradient(135deg, #E91E8C, #C2185B)",
             color: "#fff",
             border: "none", cursor: "pointer",
-            fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 16,
+            fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 16,
             display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
             boxShadow: "0 6px 24px rgba(233,30,140,0.3)",
             transition: "background 0.3s, box-shadow 0.3s",
@@ -353,7 +353,7 @@ export default function ContactForm() {
           Send Enquiry via WhatsApp
         </button>
         <p style={{
-          fontFamily: "Inter,sans-serif", fontSize: 12,
+          fontFamily: "var(--font-body)", fontSize: 12,
           color: "#9CA3AF", textAlign: "center", marginTop: 10,
         }}>
           Opens WhatsApp · We reply within minutes

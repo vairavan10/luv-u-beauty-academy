@@ -102,7 +102,7 @@ export default function ContactClient() {
           {/* Eyebrow */}
           <span className="ct-sub" style={{
             display: "inline-block", opacity: 0,
-            fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+            fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
             letterSpacing: "0.18em", textTransform: "uppercase",
             color: "#E91E8C", marginBottom: 24,
           }}>Get in Touch</span>
@@ -115,7 +115,7 @@ export default function ContactClient() {
                   className="ct-line"
                   style={{
                     display: "inline-block",
-                    fontFamily: "Playfair Display, serif",
+                    fontFamily: "var(--font-display)",
                     fontWeight: li === 0 ? 700 : 900,
                     fontSize: "clamp(2.4rem, 5.5vw, 5rem)",
                     color: li === 0 ? "#fff" : "transparent",
@@ -134,7 +134,7 @@ export default function ContactClient() {
 
           <p className="ct-sub" style={{
             opacity: 0,
-            fontFamily: "Inter,sans-serif", color: "rgba(255,255,255,0.45)",
+            fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.45)",
             fontSize: 17, lineHeight: 1.75,
             maxWidth: 520, margin: "0 0 36px",
           }}>
@@ -149,7 +149,7 @@ export default function ContactClient() {
                 display: "inline-flex", alignItems: "center", gap: 8,
                 padding: "13px 24px", borderRadius: 12,
                 background: "#E91E8C", color: "#fff",
-                fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 14,
+                fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 14,
                 textDecoration: "none", whiteSpace: "nowrap",
                 boxShadow: "0 4px 20px rgba(233,30,140,0.35)",
                 transition: "opacity 0.2s, transform 0.2s",
@@ -167,7 +167,7 @@ export default function ContactClient() {
                 padding: "13px 24px", borderRadius: 12,
                 border: "1.5px solid rgba(255,255,255,0.15)",
                 color: "rgba(255,255,255,0.7)", background: "transparent",
-                fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 14,
+                fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 14,
                 textDecoration: "none", whiteSpace: "nowrap",
                 transition: "border-color 0.2s, color 0.2s",
               }}
@@ -228,13 +228,13 @@ export default function ContactClient() {
                 </div>
 
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontSize: 10, fontWeight: 700,
+                  fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700,
                   letterSpacing: "0.16em", textTransform: "uppercase",
                   color: "#E91E8C", margin: "0 0 10px",
                 }}>{card.label}</p>
 
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontSize: 15,
+                  fontFamily: "var(--font-body)", fontSize: 15,
                   color: "#0D0D0D", fontWeight: 500,
                   lineHeight: 1.65, margin: "0 0 16px",
                   whiteSpace: "pre-line",
@@ -245,7 +245,7 @@ export default function ContactClient() {
                     target={card.link.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
                     style={{
-                      fontFamily: "Inter,sans-serif", fontSize: 13, fontWeight: 600,
+                      fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 600,
                       color: "#E91E8C", textDecoration: "none",
                       display: "inline-flex", alignItems: "center", gap: 4,
                     }}
@@ -276,13 +276,13 @@ export default function ContactClient() {
             >
               <div style={{ marginBottom: 28 }}>
                 <h2 style={{
-                  fontFamily: "Playfair Display,serif",
+                  fontFamily: "var(--font-display)",
                   fontWeight: 800, fontSize: "clamp(1.6rem,3vw,2.2rem)",
                   color: "#0D0D0D", letterSpacing: "-0.025em",
                   margin: "0 0 10px", lineHeight: 1.2,
                 }}>Send an Enquiry</h2>
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontSize: 14,
+                  fontFamily: "var(--font-body)", fontSize: 14,
                   color: "#6B7280", margin: 0, lineHeight: 1.6,
                 }}>
                   Fill in the form and we&apos;ll respond via WhatsApp within minutes.
@@ -305,10 +305,10 @@ export default function ContactClient() {
                   pointerEvents: "none",
                 }} />
                 <p style={{
-                  fontFamily: "Playfair Display,serif", fontWeight: 800,
+                  fontFamily: "var(--font-display)", fontWeight: 800,
                   fontSize: 20, color: "#fff", margin: "0 0 6px", lineHeight: 1.3,
                 }}>Luv U Beauty Academy</p>
-                <p style={{ fontFamily: "Inter,sans-serif", fontSize: 13, color: "rgba(255,255,255,0.4)", margin: "0 0 24px" }}>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "rgba(255,255,255,0.4)", margin: "0 0 24px" }}>
                   Tanjore&apos;s #1 Beauty Training Institute
                 </p>
 
@@ -320,7 +320,7 @@ export default function ContactClient() {
                 ].map(({ icon, text }) => (
                   <div key={text} style={{ display: "flex", gap: 12, marginBottom: 14, alignItems: "flex-start" }}>
                     <span style={{ fontSize: 15, flexShrink: 0, marginTop: 1 }}>{icon}</span>
-                    <span style={{ fontFamily: "Inter,sans-serif", fontSize: 13.5, color: "rgba(255,255,255,0.6)", lineHeight: 1.55 }}>{text}</span>
+                    <span style={{ fontFamily: "var(--font-body)", fontSize: 13.5, color: "rgba(255,255,255,0.6)", lineHeight: 1.55 }}>{text}</span>
                   </div>
                 ))}
 
@@ -351,10 +351,10 @@ export default function ContactClient() {
                 border: "1.5px solid rgba(233,30,140,0.2)",
                 background: "rgba(233,30,140,0.03)",
               }}>
-                <p style={{ fontFamily: "Playfair Display,serif", fontWeight: 700, fontSize: 17, color: "#0D0D0D", margin: "0 0 8px" }}>
+                <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 17, color: "#0D0D0D", margin: "0 0 8px" }}>
                   Book a Free Demo Class
                 </p>
-                <p style={{ fontFamily: "Inter,sans-serif", fontSize: 13.5, color: "#6B7280", margin: "0 0 18px", lineHeight: 1.6 }}>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 13.5, color: "#6B7280", margin: "0 0 18px", lineHeight: 1.6 }}>
                   Experience our training firsthand. No commitment, no fees.
                 </p>
                 <a
@@ -364,7 +364,7 @@ export default function ContactClient() {
                     display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
                     padding: "12px 20px", borderRadius: 12,
                     background: "linear-gradient(135deg, #E91E8C, #C2185B)",
-                    color: "#fff", fontFamily: "Inter,sans-serif",
+                    color: "#fff", fontFamily: "var(--font-body)",
                     fontWeight: 700, fontSize: 14, textDecoration: "none",
                     boxShadow: "0 4px 18px rgba(233,30,140,0.3)",
                     transition: "opacity 0.2s, transform 0.2s",
@@ -386,8 +386,8 @@ export default function ContactClient() {
         <div className="ct-map" style={{ maxWidth: 1100, margin: "0 auto", opacity: 0 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
             <div>
-              <span style={{ fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#E91E8C" }}>Find Us</span>
-              <h2 style={{ fontFamily: "Playfair Display,serif", fontWeight: 800, fontSize: "clamp(1.4rem,3vw,2rem)", color: "#0D0D0D", margin: "6px 0 0", letterSpacing: "-0.025em" }}>
+              <span style={{ fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#E91E8C" }}>Find Us</span>
+              <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.4rem,3vw,2rem)", color: "#0D0D0D", margin: "6px 0 0", letterSpacing: "-0.025em" }}>
                 Visit Us in Thanjavur
               </h2>
             </div>
@@ -398,7 +398,7 @@ export default function ContactClient() {
                 display: "inline-flex", alignItems: "center", gap: 6,
                 padding: "10px 20px", borderRadius: 10,
                 border: "1.5px solid #E5E7EB", background: "#fff",
-                fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 13,
+                fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 13,
                 color: "#374151", textDecoration: "none",
                 transition: "border-color 0.2s, color 0.2s",
               }}

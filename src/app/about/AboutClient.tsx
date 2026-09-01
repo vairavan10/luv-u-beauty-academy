@@ -57,7 +57,7 @@ const courseBadges = [
 
 export default function AboutClient() {
   return (
-    <main style={{ paddingTop: 80, fontFamily: "Inter, sans-serif" }}>
+    <main style={{ paddingTop: 80, fontFamily: "var(--font-body)" }}>
 
       {/* ── HERO ── */}
       <section style={{
@@ -93,7 +93,7 @@ export default function AboutClient() {
             padding: "6px 18px", borderRadius: 999,
             background: "rgba(233,30,140,0.15)",
             border: "1px solid rgba(233,30,140,0.3)",
-            fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+            fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
             letterSpacing: "0.18em", textTransform: "uppercase",
             color: "#ff77c0", marginBottom: 28,
           }}>
@@ -101,7 +101,7 @@ export default function AboutClient() {
           </span>
 
           <h1 style={{
-            fontFamily: "Playfair Display, serif",
+            fontFamily: "var(--font-display)",
             fontWeight: 900,
             fontSize: "clamp(2.4rem, 6vw, 5rem)",
             lineHeight: 1.1,
@@ -124,7 +124,7 @@ export default function AboutClient() {
           </h1>
 
           <p style={{
-            fontFamily: "Inter,sans-serif",
+            fontFamily: "var(--font-body)",
             fontSize: 18, lineHeight: 1.8,
             color: "rgba(255,255,255,0.55)",
             maxWidth: 580, margin: "0 auto 36px",
@@ -138,7 +138,7 @@ export default function AboutClient() {
               display: "inline-flex", alignItems: "center", gap: 8,
               padding: "13px 28px", borderRadius: 12,
               background: "linear-gradient(135deg, #E91E8C, #C2185B)",
-              color: "#fff", fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 14,
+              color: "#fff", fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 14,
               textDecoration: "none", boxShadow: "0 4px 20px rgba(233,30,140,0.35)",
             }}>
               பாடநெறிகளை காண்க →
@@ -148,7 +148,7 @@ export default function AboutClient() {
               padding: "13px 28px", borderRadius: 12,
               border: "1.5px solid rgba(255,255,255,0.2)",
               color: "rgba(255,255,255,0.8)", background: "transparent",
-              fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 14,
+              fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 14,
               textDecoration: "none",
             }}>
               தொடர்பு கொள்ளுங்கள்
@@ -171,18 +171,18 @@ export default function AboutClient() {
                 borderRight: i < 3 ? "1px solid #F0F0F0" : "none",
               }}>
                 <p style={{
-                  fontFamily: "Playfair Display,serif",
+                  fontFamily: "var(--font-display)",
                   fontWeight: 900, fontSize: "clamp(2rem,4vw,3rem)",
                   color: a.color, margin: "0 0 4px",
                   lineHeight: 1,
                 }}>{a.number}</p>
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontWeight: 600,
+                  fontFamily: "var(--font-body)", fontWeight: 600,
                   fontSize: 13, color: "#0D0D0D",
                   margin: "0 0 2px",
                 }}>{a.label}</p>
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontSize: 11,
+                  fontFamily: "var(--font-body)", fontSize: 11,
                   color: "#9CA3AF", margin: 0,
                 }}>{a.labelTamil}</p>
               </div>
@@ -201,14 +201,14 @@ export default function AboutClient() {
               padding: "6px 18px", borderRadius: 999,
               background: "rgba(233,30,140,0.06)",
               border: "1px solid rgba(233,30,140,0.15)",
-              fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+              fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
               letterSpacing: "0.18em", textTransform: "uppercase",
               color: "#E91E8C", marginBottom: 16,
             }}>
               ✦ நிறுவனர் — Our Founder
             </span>
             <h2 style={{
-              fontFamily: "Playfair Display,serif", fontWeight: 800,
+              fontFamily: "var(--font-display)", fontWeight: 800,
               fontSize: "clamp(1.8rem,4vw,3rem)", color: "#0D0D0D",
               margin: 0, letterSpacing: "-0.025em",
             }}>Meet the Heart Behind the Academy</h2>
@@ -300,12 +300,12 @@ export default function AboutClient() {
                 </div>
 
                 <h3 style={{
-                  fontFamily: "Playfair Display,serif",
+                  fontFamily: "var(--font-display)",
                   fontWeight: 800, fontSize: 22, color: "#fff",
                   margin: "0 0 6px", position: "relative", zIndex: 1,
                 }}>Mrs. Ramayee</h3>
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontWeight: 600,
+                  fontFamily: "var(--font-body)", fontWeight: 600,
                   fontSize: 12, color: "#E91E8C",
                   letterSpacing: "0.05em", margin: "0 0 20px",
                   position: "relative", zIndex: 1,
@@ -318,7 +318,7 @@ export default function AboutClient() {
                 }} />
 
                 <p style={{
-                  fontFamily: "Playfair Display,serif",
+                  fontFamily: "var(--font-display)",
                   fontStyle: "italic", fontSize: 13.5,
                   color: "rgba(255,255,255,0.6)",
                   lineHeight: 1.75, margin: "0 0 8px",
@@ -327,7 +327,7 @@ export default function AboutClient() {
                   &ldquo;அழகை உணர்வோடு, படைப்பாற்றலோடு,<br />தன்னம்பிக்கையோடு வெளிப்படுத்துங்கள்.&rdquo;
                 </p>
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontSize: 11.5,
+                  fontFamily: "var(--font-body)", fontSize: 11.5,
                   color: "rgba(255,255,255,0.35)", margin: "0 0 28px",
                   position: "relative", zIndex: 1, lineHeight: 1.6,
                 }}>
@@ -350,7 +350,7 @@ export default function AboutClient() {
                       textAlign: "left",
                     }}>
                       <span style={{ fontSize: 13, flexShrink: 0 }}>{b.icon}</span>
-                      <span style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "rgba(255,255,255,0.72)", fontWeight: 500, lineHeight: 1.4 }}>{b.label}</span>
+                      <span style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "rgba(255,255,255,0.72)", fontWeight: 500, lineHeight: 1.4 }}>{b.label}</span>
                     </div>
                   ))}
                 </div>
@@ -363,7 +363,7 @@ export default function AboutClient() {
                   padding: "4px 14px", borderRadius: 999,
                   background: "rgba(233,30,140,0.06)",
                   border: "1px solid rgba(233,30,140,0.15)",
-                  fontFamily: "Inter,sans-serif", fontSize: 10, fontWeight: 700,
+                  fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700,
                   letterSpacing: "0.18em", textTransform: "uppercase",
                   color: "#E91E8C", marginBottom: 20,
                 }}>
@@ -371,19 +371,19 @@ export default function AboutClient() {
                 </span>
 
                 <h3 style={{
-                  fontFamily: "Playfair Display,serif", fontWeight: 800,
+                  fontFamily: "var(--font-display)", fontWeight: 800,
                   fontSize: "clamp(1.5rem,2.5vw,2.2rem)", color: "#0D0D0D",
                   letterSpacing: "-0.025em", margin: "0 0 6px", lineHeight: 1.2,
                 }}>Mrs. Ramayee</h3>
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontWeight: 600,
+                  fontFamily: "var(--font-body)", fontWeight: 600,
                   fontSize: 13, color: "#E91E8C", margin: "0 0 28px",
                   letterSpacing: "0.02em",
                 }}>Cosmetologist · Head of Luv U Beauty Academy</p>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 28 }}>
                   <p style={{
-                    fontFamily: "Inter,sans-serif", fontSize: 15,
+                    fontFamily: "var(--font-body)", fontSize: 15,
                     color: "#374151", lineHeight: 1.8, margin: 0,
                   }}>
                     Mrs. Ramayee is a skilled and passionate cosmetologist with years of experience in the beauty
@@ -392,7 +392,7 @@ export default function AboutClient() {
                     women feel confident, beautiful, and empowered through expert beauty care and personalized services.
                   </p>
                   <p style={{
-                    fontFamily: "Inter,sans-serif", fontSize: 15,
+                    fontFamily: "var(--font-body)", fontSize: 15,
                     color: "#374151", lineHeight: 1.8, margin: 0,
                   }}>
                     She completed her cosmetology training at{" "}
@@ -404,7 +404,7 @@ export default function AboutClient() {
                     <strong style={{ color: "#E91E8C" }}>Kannan Rajamanikam</strong>.
                   </p>
                   <p style={{
-                    fontFamily: "Inter,sans-serif", fontSize: 15,
+                    fontFamily: "var(--font-body)", fontSize: 15,
                     color: "#374151", lineHeight: 1.8, margin: 0,
                   }}>
                     As the founder of <strong style={{ color: "#0D0D0D" }}>Luv U The Women World</strong>, she
@@ -412,7 +412,7 @@ export default function AboutClient() {
                     with comfort, hygiene, and personal attention.
                   </p>
                   <p style={{
-                    fontFamily: "Inter,sans-serif", fontSize: 15,
+                    fontFamily: "var(--font-body)", fontSize: 15,
                     color: "#374151", lineHeight: 1.8, margin: 0,
                     padding: "16px 20px",
                     background: "rgba(233,30,140,0.04)",
@@ -430,7 +430,7 @@ export default function AboutClient() {
                 {/* Expertise tags */}
                 <div style={{ marginBottom: 28 }}>
                   <p style={{
-                    fontFamily: "Inter,sans-serif", fontSize: 10, fontWeight: 700,
+                    fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700,
                     letterSpacing: "0.15em", textTransform: "uppercase",
                     color: "#9CA3AF", margin: "0 0 10px",
                   }}>நிபுணத்துவம் · Expertise</p>
@@ -440,7 +440,7 @@ export default function AboutClient() {
                         padding: "5px 14px", borderRadius: 999,
                         background: "rgba(233,30,140,0.06)",
                         border: "1px solid rgba(233,30,140,0.15)",
-                        fontFamily: "Inter,sans-serif", fontSize: 12, fontWeight: 600,
+                        fontFamily: "var(--font-body)", fontSize: 12, fontWeight: 600,
                         color: "#E91E8C",
                       }}>{tag}</span>
                     ))}
@@ -459,7 +459,7 @@ export default function AboutClient() {
                       display: "inline-flex", alignItems: "center", gap: 8,
                       padding: "12px 22px", borderRadius: 12,
                       background: "linear-gradient(135deg, #25D366, #128C7E)",
-                      color: "#fff", fontFamily: "Inter,sans-serif",
+                      color: "#fff", fontFamily: "var(--font-body)",
                       fontWeight: 700, fontSize: 13, textDecoration: "none",
                       boxShadow: "0 4px 16px rgba(37,211,102,0.28)",
                     }}
@@ -471,7 +471,7 @@ export default function AboutClient() {
                     display: "inline-flex", alignItems: "center", gap: 8,
                     padding: "12px 22px", borderRadius: 12,
                     border: "1.5px solid #E5E7EB", background: "#fff",
-                    color: "#374151", fontFamily: "Inter,sans-serif",
+                    color: "#374151", fontFamily: "var(--font-body)",
                     fontWeight: 600, fontSize: 13, textDecoration: "none",
                   }}>
                     View Courses →
@@ -495,14 +495,14 @@ export default function AboutClient() {
                 padding: "6px 18px", borderRadius: 999,
                 background: "rgba(233,30,140,0.06)",
                 border: "1px solid rgba(233,30,140,0.15)",
-                fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+                fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
                 letterSpacing: "0.18em", textTransform: "uppercase",
                 color: "#E91E8C", marginBottom: 20,
               }}>
                 ✦ எங்கள் பயணம் — Our Journey
               </span>
               <h2 style={{
-                fontFamily: "Playfair Display,serif", fontWeight: 800,
+                fontFamily: "var(--font-display)", fontWeight: 800,
                 fontSize: "clamp(1.8rem,3vw,2.6rem)", color: "#0D0D0D",
                 letterSpacing: "-0.025em", margin: "0 0 20px", lineHeight: 1.2,
               }}>
@@ -522,7 +522,7 @@ export default function AboutClient() {
                   "நாம் நம்புகிறோம் — We believe that beauty education is not just about techniques. It's about building confidence, financial independence, and a fulfilling career that you truly love.",
                 ].map((para, i) => (
                   <p key={i} style={{
-                    fontFamily: "Inter,sans-serif", fontSize: 15.5,
+                    fontFamily: "var(--font-body)", fontSize: 15.5,
                     color: "#374151", lineHeight: 1.8, margin: 0,
                   }}>{para}</p>
                 ))}
@@ -533,14 +533,14 @@ export default function AboutClient() {
                   display: "inline-flex", alignItems: "center", gap: 8,
                   padding: "13px 24px", borderRadius: 12,
                   background: "linear-gradient(135deg, #E91E8C, #C2185B)",
-                  color: "#fff", fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 14,
+                  color: "#fff", fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 14,
                   textDecoration: "none", boxShadow: "0 4px 20px rgba(233,30,140,0.3)",
                 }}>Explore Courses</Link>
                 <Link href="/contact" style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
                   padding: "13px 24px", borderRadius: 12,
                   border: "1.5px solid #E5E7EB", background: "#fff",
-                  color: "#374151", fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 14,
+                  color: "#374151", fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 14,
                   textDecoration: "none",
                 }}>Contact Us</Link>
               </div>
@@ -573,18 +573,18 @@ export default function AboutClient() {
                     <div>
                       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
                         <span style={{
-                          fontFamily: "Playfair Display,serif", fontWeight: 800,
+                          fontFamily: "var(--font-display)", fontWeight: 800,
                           fontSize: 18, color: "#E91E8C",
                         }}>{m.year}</span>
                         <span style={{
                           padding: "2px 10px", borderRadius: 999,
                           background: "rgba(233,30,140,0.06)",
-                          fontFamily: "Inter,sans-serif", fontSize: 10, fontWeight: 600,
+                          fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 600,
                           color: "#E91E8C",
                         }}>{m.tamil}</span>
                       </div>
                       <p style={{
-                        fontFamily: "Inter,sans-serif", fontSize: 14,
+                        fontFamily: "var(--font-body)", fontSize: 14,
                         color: "#374151", margin: 0, lineHeight: 1.6,
                       }}>{m.label}</p>
                     </div>
@@ -605,14 +605,14 @@ export default function AboutClient() {
               padding: "6px 18px", borderRadius: 999,
               background: "rgba(183,110,121,0.08)",
               border: "1px solid rgba(183,110,121,0.2)",
-              fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+              fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
               letterSpacing: "0.18em", textTransform: "uppercase",
               color: "#B76E79", marginBottom: 16,
             }}>
               ✦ நோக்கம் — Our Purpose
             </span>
             <h2 style={{
-              fontFamily: "Playfair Display,serif", fontWeight: 800,
+              fontFamily: "var(--font-display)", fontWeight: 800,
               fontSize: "clamp(1.8rem,4vw,3rem)", color: "#0D0D0D",
               margin: 0, letterSpacing: "-0.025em",
             }}>Our Mission &amp; Vision</h2>
@@ -652,16 +652,16 @@ export default function AboutClient() {
                   fontSize: 26, marginBottom: 20,
                 }}>{item.icon}</div>
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontSize: 10, fontWeight: 700,
+                  fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700,
                   letterSpacing: "0.15em", textTransform: "uppercase",
                   color: item.color, margin: "0 0 6px",
                 }}>{item.titleTamil}</p>
                 <h3 style={{
-                  fontFamily: "Playfair Display,serif", fontWeight: 800,
+                  fontFamily: "var(--font-display)", fontWeight: 800,
                   fontSize: 22, color: "#0D0D0D", margin: "0 0 16px",
                 }}>{item.title}</h3>
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontSize: 15,
+                  fontFamily: "var(--font-body)", fontSize: 15,
                   color: "#374151", lineHeight: 1.8, margin: 0,
                 }}>{item.desc}</p>
               </div>
@@ -679,14 +679,14 @@ export default function AboutClient() {
               padding: "6px 18px", borderRadius: 999,
               background: "rgba(233,30,140,0.06)",
               border: "1px solid rgba(233,30,140,0.15)",
-              fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+              fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
               letterSpacing: "0.18em", textTransform: "uppercase",
               color: "#E91E8C", marginBottom: 16,
             }}>
               ✦ எங்கள் மதிப்புகள் — Our Values
             </span>
             <h2 style={{
-              fontFamily: "Playfair Display,serif", fontWeight: 800,
+              fontFamily: "var(--font-display)", fontWeight: 800,
               fontSize: "clamp(1.8rem,4vw,3rem)", color: "#0D0D0D",
               margin: 0, letterSpacing: "-0.025em",
             }}>What We Stand For</h2>
@@ -702,16 +702,16 @@ export default function AboutClient() {
               }}>
                 <div style={{ fontSize: 32, marginBottom: 16 }}>{v.icon}</div>
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontSize: 10, fontWeight: 700,
+                  fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700,
                   letterSpacing: "0.15em", textTransform: "uppercase",
                   color: "#E91E8C", margin: "0 0 6px",
                 }}>{v.titleTamil}</p>
                 <h3 style={{
-                  fontFamily: "Playfair Display,serif", fontWeight: 700,
+                  fontFamily: "var(--font-display)", fontWeight: 700,
                   fontSize: 17, color: "#0D0D0D", margin: "0 0 12px",
                 }}>{v.title}</h3>
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontSize: 13.5,
+                  fontFamily: "var(--font-body)", fontSize: 13.5,
                   color: "#6B7280", lineHeight: 1.7, margin: 0,
                 }}>{v.desc}</p>
               </div>
@@ -728,19 +728,19 @@ export default function AboutClient() {
             padding: "6px 18px", borderRadius: 999,
             background: "rgba(233,30,140,0.06)",
             border: "1px solid rgba(233,30,140,0.15)",
-            fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+            fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
             letterSpacing: "0.18em", textTransform: "uppercase",
             color: "#E91E8C", marginBottom: 16,
           }}>
             ✦ பாடநெறிகள் — Courses
           </span>
           <h2 style={{
-            fontFamily: "Playfair Display,serif", fontWeight: 800,
+            fontFamily: "var(--font-display)", fontWeight: 800,
             fontSize: "clamp(1.6rem,3.5vw,2.6rem)", color: "#0D0D0D",
             margin: "0 0 12px", letterSpacing: "-0.025em",
           }}>What We Teach</h2>
           <p style={{
-            fontFamily: "Inter,sans-serif", fontSize: 15,
+            fontFamily: "var(--font-body)", fontSize: 15,
             color: "#6B7280", margin: "0 auto 40px",
             maxWidth: 500, lineHeight: 1.7,
           }}>
@@ -752,7 +752,7 @@ export default function AboutClient() {
                 padding: "10px 22px", borderRadius: 999,
                 background: "#fff",
                 border: "1.5px solid rgba(233,30,140,0.15)",
-                fontFamily: "Inter,sans-serif", fontSize: 14, fontWeight: 600,
+                fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 600,
                 color: "#0D0D0D",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
               }}>{c}</span>
@@ -763,7 +763,7 @@ export default function AboutClient() {
               display: "inline-flex", alignItems: "center", gap: 8,
               padding: "14px 32px", borderRadius: 12,
               background: "linear-gradient(135deg, #E91E8C, #C2185B)",
-              color: "#fff", fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 15,
+              color: "#fff", fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 15,
               textDecoration: "none", boxShadow: "0 6px 24px rgba(233,30,140,0.3)",
             }}>
               அனைத்து பாடநெறிகளும் காண்க — View All Courses
@@ -793,21 +793,21 @@ export default function AboutClient() {
             padding: "6px 18px", borderRadius: 999,
             background: "rgba(233,30,140,0.15)",
             border: "1px solid rgba(233,30,140,0.3)",
-            fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+            fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
             letterSpacing: "0.18em", textTransform: "uppercase",
             color: "#ff77c0", marginBottom: 24,
           }}>
             ✦ சேர்வீர்களா? — Join Us
           </span>
           <h2 style={{
-            fontFamily: "Playfair Display,serif", fontWeight: 800,
+            fontFamily: "var(--font-display)", fontWeight: 800,
             fontSize: "clamp(1.8rem,4vw,3rem)", color: "#fff",
             margin: "0 0 16px", letterSpacing: "-0.025em",
           }}>
             Ready to Join Our Family?
           </h2>
           <p style={{
-            fontFamily: "Inter,sans-serif", fontSize: 16,
+            fontFamily: "var(--font-body)", fontSize: 16,
             color: "rgba(255,255,255,0.55)",
             margin: "0 auto 36px", lineHeight: 1.7,
           }}>
@@ -822,7 +822,7 @@ export default function AboutClient() {
                 display: "inline-flex", alignItems: "center", gap: 8,
                 padding: "14px 28px", borderRadius: 12,
                 background: "linear-gradient(135deg, #E91E8C, #C2185B)",
-                color: "#fff", fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 15,
+                color: "#fff", fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 15,
                 textDecoration: "none", boxShadow: "0 6px 24px rgba(233,30,140,0.4)",
               }}
             >
@@ -833,7 +833,7 @@ export default function AboutClient() {
               padding: "14px 28px", borderRadius: 12,
               border: "1.5px solid rgba(255,255,255,0.2)",
               color: "rgba(255,255,255,0.85)", background: "transparent",
-              fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 15,
+              fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 15,
               textDecoration: "none",
             }}>
               Contact Us

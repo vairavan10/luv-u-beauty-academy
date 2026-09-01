@@ -470,7 +470,7 @@ export default function GalleryClient() {
                   padding: "4px 12px",
                   borderRadius: 999,
                   background: "rgba(183, 110, 121, 0.8)",
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontSize: "10px",
                   fontWeight: 700,
                   color: "#fff",
@@ -482,7 +482,7 @@ export default function GalleryClient() {
               </span>
               <h4
                 style={{
-                  fontFamily: "Playfair Display, Georgia, serif",
+                  fontFamily: "var(--font-display)",
                   fontSize: "1.6rem",
                   fontWeight: 700,
                   color: "#fff",
@@ -493,7 +493,7 @@ export default function GalleryClient() {
               </h4>
               <p
                 style={{
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontSize: "14px",
                   color: "rgba(255,255,255,0.65)",
                   lineHeight: 1.5,

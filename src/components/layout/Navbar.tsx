@@ -97,19 +97,19 @@ export default function Navbar() {
           padding: "0 24px",
           display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
-          <span style={{ color: "rgba(255,255,255,0.9)", fontSize: 12, fontFamily: "Inter,sans-serif" }}>
+          <span style={{ color: "rgba(255,255,255,0.9)", fontSize: 12, fontFamily: "var(--font-body)" }}>
             🌸 Tanjore&apos;s #1 Beauty Academy — Free Demo Class Available!
           </span>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <a href={`tel:+91${PHONE}`} style={{
               color: "rgba(255,255,255,0.92)", fontSize: 12,
-              fontFamily: "Inter,sans-serif", fontWeight: 600,
+              fontFamily: "var(--font-body)", fontWeight: 600,
               display: "flex", alignItems: "center", gap: 6,
             }}>
               <Phone size={11} color="white" /> +91 {PHONE}
             </a>
             <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 11 }}>|</span>
-            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: 11, fontFamily: "Inter,sans-serif" }}>
+            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: 11, fontFamily: "var(--font-body)" }}>
               Mon–Sun · 9AM–9PM
             </span>
           </div>
@@ -160,7 +160,7 @@ export default function Navbar() {
                         padding: "8px 14px", borderRadius: 10, border: "none", cursor: "pointer",
                         background: isAct ? "rgba(233,30,140,0.07)" : "transparent",
                         color: isAct ? "#E91E8C" : "#374151",
-                        fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: 14,
+                        fontFamily: "var(--font-body)", fontWeight: 500, fontSize: 14,
                         transition: "all 0.15s ease",
                       }}
                         onMouseEnter={e => { Object.assign((e.currentTarget as HTMLElement).style, { background: "rgba(233,30,140,0.07)", color: "#E91E8C" }); }}
@@ -182,7 +182,7 @@ export default function Navbar() {
                           <p style={{
                             fontSize: 10, fontWeight: 700, letterSpacing: "0.15em",
                             textTransform: "uppercase", color: "#E91E8C",
-                            padding: "8px 12px 6px", fontFamily: "Inter, sans-serif",
+                            padding: "8px 12px 6px", fontFamily: "var(--font-body)",
                           }}>Our Courses</p>
                           {courses.map(c => (
                             <Link key={c.href} href={c.href} style={{
@@ -190,7 +190,7 @@ export default function Navbar() {
                               padding: "9px 12px", borderRadius: 10,
                               color: pathname === c.href ? "#E91E8C" : "#4B5563",
                               background: pathname === c.href ? "rgba(233,30,140,0.06)" : "transparent",
-                              fontFamily: "Inter, sans-serif", fontSize: 13.5,
+                              fontFamily: "var(--font-body)", fontSize: 13.5,
                               fontWeight: pathname === c.href ? 600 : 400,
                               textDecoration: "none", transition: "all 0.12s ease",
                             }}
@@ -204,7 +204,7 @@ export default function Navbar() {
                           <div style={{ borderTop: "1px solid rgba(233,30,140,0.08)", marginTop: 4, padding: "8px 12px 4px" }}>
                             <Link href="/courses" style={{
                               fontSize: 12, fontWeight: 600, color: "#E91E8C",
-                              fontFamily: "Inter, sans-serif", textDecoration: "none",
+                              fontFamily: "var(--font-body)", textDecoration: "none",
                               display: "flex", justifyContent: "space-between", alignItems: "center",
                             }}>
                               <span>View all courses</span><span>→</span>
@@ -219,7 +219,7 @@ export default function Navbar() {
                 return (
                   <Link key={l.href} href={l.href} style={{
                     padding: "8px 14px", borderRadius: 10,
-                    fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: 14,
+                    fontFamily: "var(--font-body)", fontWeight: 500, fontSize: 14,
                     color: isAct ? "#E91E8C" : "#374151",
                     background: isAct ? "rgba(233,30,140,0.07)" : "transparent",
                     textDecoration: "none", transition: "all 0.15s ease",
@@ -237,7 +237,7 @@ export default function Navbar() {
             <div style={{ alignItems: "center", gap: 12, flexShrink: 0 }} className="hidden lg:flex">
               <a href={`tel:+91${PHONE}`} style={{
                 display: "flex", alignItems: "center", gap: 8,
-                fontFamily: "Inter, sans-serif", fontSize: 13, fontWeight: 500,
+                fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 500,
                 color: "#555", textDecoration: "none",
               }}>
                 <span style={{
@@ -254,7 +254,7 @@ export default function Navbar() {
                 display: "flex", alignItems: "center", gap: 8,
                 padding: "10px 22px", borderRadius: 12,
                 background: "linear-gradient(135deg, #E91E8C, #C2185B)",
-                color: "white", fontFamily: "Inter, sans-serif",
+                color: "white", fontFamily: "var(--font-body)",
                 fontWeight: 600, fontSize: 13.5, textDecoration: "none",
                 boxShadow: "0 4px 16px rgba(233,30,140,0.3)",
                 transition: "all 0.2s ease",
@@ -333,8 +333,8 @@ export default function Navbar() {
           background: "rgba(233,30,140,0.04)", border: "1px solid rgba(233,30,140,0.12)",
           display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
-          <span style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "#6B7280" }}>📞 Call us anytime</span>
-          <a href={`tel:+91${PHONE}`} style={{ fontFamily: "Inter,sans-serif", fontSize: 14, fontWeight: 700, color: "#E91E8C", textDecoration: "none" }}>{PHONE}</a>
+          <span style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "#6B7280" }}>📞 Call us anytime</span>
+          <a href={`tel:+91${PHONE}`} style={{ fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 700, color: "#E91E8C", textDecoration: "none" }}>{PHONE}</a>
         </div>
 
         {/* Nav links */}
@@ -347,7 +347,7 @@ export default function Navbar() {
                   <button onClick={() => setMobileCourses(!mobileCourses)} style={{
                     width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
                     padding: "13px 14px", borderRadius: 12, marginBottom: 2,
-                    fontFamily: "Inter,sans-serif", fontSize: 15, fontWeight: 500,
+                    fontFamily: "var(--font-body)", fontSize: 15, fontWeight: 500,
                     color: isAct ? "#E91E8C" : "#1F2937",
                     background: isAct ? "rgba(233,30,140,0.06)" : "transparent",
                     border: "none", cursor: "pointer",
@@ -361,7 +361,7 @@ export default function Navbar() {
                         <Link key={c.href} href={c.href} style={{
                           display: "flex", alignItems: "center", gap: 10,
                           padding: "10px 12px", borderRadius: 10,
-                          fontFamily: "Inter,sans-serif", fontSize: 14,
+                          fontFamily: "var(--font-body)", fontSize: 14,
                           color: pathname === c.href ? "#E91E8C" : "#4B5563",
                           fontWeight: pathname === c.href ? 600 : 400,
                           textDecoration: "none",
@@ -380,7 +380,7 @@ export default function Navbar() {
               <Link key={l.href} href={l.href} style={{
                 display: "flex", alignItems: "center", gap: 10,
                 padding: "13px 14px", borderRadius: 12, marginBottom: 2,
-                fontFamily: "Inter,sans-serif", fontSize: 15, fontWeight: 500,
+                fontFamily: "var(--font-body)", fontSize: 15, fontWeight: 500,
                 color: isAct ? "#E91E8C" : "#1F2937",
                 background: isAct ? "rgba(233,30,140,0.06)" : "transparent",
                 textDecoration: "none",
@@ -398,7 +398,7 @@ export default function Navbar() {
             display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
             padding: "15px", borderRadius: 14,
             background: "linear-gradient(135deg, #E91E8C, #C2185B)",
-            color: "white", fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 15,
+            color: "white", fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 15,
             textDecoration: "none", boxShadow: "0 4px 16px rgba(233,30,140,0.3)",
           }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
@@ -411,7 +411,7 @@ export default function Navbar() {
             padding: "13px", borderRadius: 12,
             border: "1.5px solid rgba(233,30,140,0.25)",
             color: "#E91E8C", background: "rgba(233,30,140,0.03)",
-            fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 14, textDecoration: "none",
+            fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 14, textDecoration: "none",
           }}>
             <Phone size={15} color="#E91E8C" />
             Call {PHONE}

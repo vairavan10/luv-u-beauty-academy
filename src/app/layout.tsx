@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -8,6 +9,32 @@ import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import { localBusinessSchema } from "@/lib/schema";
 
 const siteUrl = "https://luvubeautyacademy.com";
+
+/*
+ * Fonts are self-hosted and served from our own origin by next/font. This
+ * removes the render-blocking round trip to fonts.googleapis.com (which used
+ * to happen twice — once via a CSS @import, once via a <link> here) and
+ * eliminates the layout shift that came with it.
+ *
+ * Both are variable fonts, so there is no weight list to keep in sync.
+ * Playfair also loads italic, which the hero and testimonial pull-quotes use.
+ *
+ * They are exposed as CSS variables rather than classNames because the family
+ * is referenced from inline styles all over the app; globals.css maps
+ * --font-display / --font-body onto these.
+ */
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -87,14 +114,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${playfair.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

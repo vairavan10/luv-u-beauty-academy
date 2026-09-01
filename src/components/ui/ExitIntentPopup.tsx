@@ -230,7 +230,7 @@ export default function ExitIntentPopup() {
               padding: "5px 14px", borderRadius: 999,
               background: "rgba(233,30,140,0.2)",
               border: "1px solid rgba(233,30,140,0.4)",
-              fontFamily: "Inter, sans-serif", fontSize: 10.5, fontWeight: 700,
+              fontFamily: "var(--font-body)", fontSize: 10.5, fontWeight: 700,
               color: "#ff77c0", letterSpacing: "0.1em", textTransform: "uppercase",
               marginBottom: 18,
               animation: "eip-badge-float 2.8s ease-in-out infinite",
@@ -273,7 +273,7 @@ export default function ExitIntentPopup() {
 
             {/* Heading */}
             <h2 style={{
-              fontFamily: "Playfair Display, serif",
+              fontFamily: "var(--font-display)",
               fontWeight: 800,
               fontSize: "clamp(1.5rem, 5vw, 1.8rem)",
               color: "#fff",
@@ -284,7 +284,7 @@ export default function ExitIntentPopup() {
               Wait — One Last Thing! 🎁
             </h2>
             <p style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: "var(--font-body)",
               fontSize: 13,
               color: "rgba(255,255,255,0.55)",
               margin: 0,
@@ -319,7 +319,7 @@ export default function ExitIntentPopup() {
               <span style={{ fontSize: 28 }}>✨</span>
               <div>
                 <p className="eip-shimmer-text" style={{
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 800,
                   fontSize: 16,
                   margin: 0,
@@ -327,7 +327,7 @@ export default function ExitIntentPopup() {
                   Free Demo Class — 100% Free!
                 </p>
                 <p style={{
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontSize: 12,
                   color: "#9CA3AF",
                   margin: "2px 0 0",
@@ -339,7 +339,7 @@ export default function ExitIntentPopup() {
 
             {/* Description */}
             <p style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: "var(--font-body)",
               fontSize: 13.5,
               color: "#6B7280",
               lineHeight: 1.65,
@@ -357,7 +357,7 @@ export default function ExitIntentPopup() {
                 justifyContent: "center",
                 gap: 8,
                 marginBottom: 18,
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "var(--font-body)",
                 fontSize: 12,
                 color: "#E91E8C",
                 fontWeight: 600,
@@ -415,7 +415,7 @@ export default function ExitIntentPopup() {
               {["No obligation", "100% Free", "Govt. Certified", "Reply in minutes"].map((t) => (
                 <span key={t} style={{
                   display: "inline-flex", alignItems: "center", gap: 5,
-                  fontFamily: "Inter, sans-serif", fontSize: 11,
+                  fontFamily: "var(--font-body)", fontSize: 11,
                   color: "#9CA3AF", fontWeight: 500,
                 }}>
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" strokeWidth="3" strokeLinecap="round">
@@ -432,7 +432,7 @@ export default function ExitIntentPopup() {
                 onClick={handleDismiss}
                 style={{
                   background: "none", border: "none", cursor: "pointer",
-                  fontFamily: "Inter, sans-serif", fontSize: 11.5,
+                  fontFamily: "var(--font-body)", fontSize: 11.5,
                   color: "#C4C4C4",
                   transition: "color 0.2s",
                 }}

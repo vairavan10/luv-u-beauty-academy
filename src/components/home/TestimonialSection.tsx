@@ -118,13 +118,13 @@ export default function TestimonialSection() {
           <span style={{
             display: "inline-block", padding: "6px 18px", borderRadius: 999,
             background: "rgba(255,255,255,0.9)", border: "1px solid rgba(233,30,140,0.2)",
-            color: "#E91E8C", fontFamily: "Inter,sans-serif",
+            color: "#E91E8C", fontFamily: "var(--font-body)",
             fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase",
             marginBottom: 20, boxShadow: "0 2px 12px rgba(233,30,140,0.1)",
           }}>✦ Student Stories</span>
 
           <h2 id="testimonials-heading" style={{
-            fontFamily: "Playfair Display, serif",
+            fontFamily: "var(--font-display)",
             fontWeight: 800, fontSize: "clamp(2rem,4vw,3rem)",
             color: "#111", letterSpacing: "-0.025em", lineHeight: 1.2,
             margin: "0 0 18px",
@@ -137,7 +137,7 @@ export default function TestimonialSection() {
           </h2>
 
           <p style={{
-            fontFamily: "Inter,sans-serif", color: "#6B7280",
+            fontFamily: "var(--font-body)", color: "#6B7280",
             fontSize: 17, lineHeight: 1.65,
             maxWidth: 500, margin: "0 auto", textAlign: "center",
           }}>
@@ -181,7 +181,7 @@ export default function TestimonialSection() {
 
               {/* Review text */}
               <p style={{
-                fontFamily: "Playfair Display, serif",
+                fontFamily: "var(--font-display)",
                 fontSize: "clamp(1.05rem, 2.2vw, 1.3rem)",
                 lineHeight: 1.75, color: "#1F2937",
                 margin: "0 0 32px",
@@ -199,15 +199,15 @@ export default function TestimonialSection() {
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
                   <span style={{
-                    fontFamily: "Playfair Display, serif", fontWeight: 800,
+                    fontFamily: "var(--font-display)", fontWeight: 800,
                     fontSize: 18, color: avatarColors[active % avatarColors.length].color,
                     lineHeight: 1, userSelect: "none",
                   }}>{getInitials(t.name)}</span>
                 </div>
                 <div>
-                  <p style={{ fontFamily: "Playfair Display,serif", fontWeight: 700, fontSize: 17, color: "#111", margin: "0 0 3px" }}>{t.name}</p>
-                  <p style={{ fontFamily: "Inter,sans-serif", fontSize: 13, color: "#E91E8C", fontWeight: 600, margin: "0 0 2px" }}>{t.course}</p>
-                  <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "#9CA3AF", margin: 0 }}>
+                  <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 17, color: "#111", margin: "0 0 3px" }}>{t.name}</p>
+                  <p style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "#E91E8C", fontWeight: 600, margin: "0 0 2px" }}>{t.course}</p>
+                  <p style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "#9CA3AF", margin: 0 }}>
                     📍 {t.location} · {t.outcome}
                   </p>
                 </div>
@@ -316,7 +316,7 @@ export default function TestimonialSection() {
               >
                 <Stars n={t2.rating} />
                 <p style={{
-                  fontFamily: "Inter,sans-serif", fontSize: 12.5, lineHeight: 1.6,
+                  fontFamily: "var(--font-body)", fontSize: 12.5, lineHeight: 1.6,
                   color: "#4B5563", margin: "10px 0 14px",
                   display: "-webkit-box",
                   WebkitLineClamp: 3,
@@ -333,14 +333,14 @@ export default function TestimonialSection() {
                     display: "flex", alignItems: "center", justifyContent: "center",
                   }}>
                     <span style={{
-                      fontFamily: "Playfair Display, serif", fontWeight: 800,
+                      fontFamily: "var(--font-display)", fontWeight: 800,
                       fontSize: 12, color: avatarColors[i % avatarColors.length].color,
                       lineHeight: 1, userSelect: "none",
                     }}>{getInitials(t2.name)}</span>
                   </div>
                   <div>
-                    <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12.5, fontWeight: 700, color: "#111", margin: 0 }}>{t2.name}</p>
-                    <p style={{ fontFamily: "Inter,sans-serif", fontSize: 11, color: "#9CA3AF", margin: 0 }}>{t2.location}</p>
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: 12.5, fontWeight: 700, color: "#111", margin: 0 }}>{t2.name}</p>
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: 11, color: "#9CA3AF", margin: 0 }}>{t2.location}</p>
                   </div>
                 </div>
               </div>
@@ -373,16 +373,16 @@ export default function TestimonialSection() {
               </svg>
             </div>
             <div>
-              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, fontWeight: 600, color: "#6B7280", margin: "0 0 4px" }}>Google Reviews</p>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: 12, fontWeight: 600, color: "#6B7280", margin: "0 0 4px" }}>Google Reviews</p>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ fontFamily: "Playfair Display,serif", fontWeight: 900, fontSize: 26, color: "#111", lineHeight: 1 }}>4.9</span>
+                <span style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 26, color: "#111", lineHeight: 1 }}>4.9</span>
                 <Stars n={5} />
-                <span style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "#9CA3AF" }}>(500+ reviews)</span>
+                <span style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "#9CA3AF" }}>(500+ reviews)</span>
               </div>
             </div>
           </div>
           <div style={{ width: 1, height: 40, background: "#F3F4F6" }} className="google-divider" />
-          <p style={{ fontFamily: "Inter,sans-serif", fontSize: 14, color: "#6B7280", textAlign: "center", margin: 0, lineHeight: 1.55 }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "#6B7280", textAlign: "center", margin: 0, lineHeight: 1.55 }}>
             Voted <strong style={{ color: "#E91E8C" }}>#1 Beauty Academy in Tanjore</strong><br />
             by our students on Google
           </p>

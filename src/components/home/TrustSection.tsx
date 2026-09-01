@@ -77,13 +77,13 @@ export default function TrustSection() {
         {/* ── Header ── */}
         <div className="ts-header" style={{ textAlign: "center", marginBottom: 72, opacity: 0 }}>
           <span style={{
-            fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700,
+            fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
             letterSpacing: "0.16em", textTransform: "uppercase",
             color: "#E91E8C", display: "block", marginBottom: 16,
           }}>Our Track Record</span>
 
           <h2 id="trust-heading" style={{
-            fontFamily: "Playfair Display, serif",
+            fontFamily: "var(--font-display)",
             fontWeight: 800, fontSize: "clamp(2rem, 4vw, 3.2rem)",
             color: "#0D0D0D", letterSpacing: "-0.03em", lineHeight: 1.15,
             margin: "0 0 18px",
@@ -96,7 +96,7 @@ export default function TrustSection() {
           </h2>
 
           <p style={{
-            fontFamily: "Inter, sans-serif", color: "#6B7280",
+            fontFamily: "var(--font-body)", color: "#6B7280",
             fontSize: 16, lineHeight: 1.75,
             maxWidth: 460, margin: "0 auto", textAlign: "center",
           }}>
@@ -133,7 +133,7 @@ export default function TrustSection() {
             >
               {/* Number */}
               <p style={{
-                fontFamily: "Playfair Display, serif",
+                fontFamily: "var(--font-display)",
                 fontWeight: 900,
                 fontSize: "clamp(2.8rem, 4vw, 4rem)",
                 margin: "0 0 8px",
@@ -149,14 +149,14 @@ export default function TrustSection() {
 
               {/* Label */}
               <p style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 600, fontSize: 15, color: "#0D0D0D",
                 margin: "0 0 6px",
               }}>{s.label}</p>
 
               {/* Sub */}
               <p style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "var(--font-body)",
                 fontSize: 12.5, color: "#9CA3AF", margin: 0,
               }}>{s.sub}</p>
             </div>
@@ -167,7 +167,7 @@ export default function TrustSection() {
         <div style={{ padding: "56px 0 64px", overflow: "hidden" }}>
           <p style={{
             textAlign: "center",
-            fontFamily: "Inter,sans-serif", fontSize: 10, fontWeight: 700,
+            fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700,
             letterSpacing: "0.2em", textTransform: "uppercase",
             color: "#D1D5DB", marginBottom: 20,
           }}>Trusted by students across</p>
@@ -178,7 +178,7 @@ export default function TrustSection() {
 
             <div className="animate-marquee" style={{ display: "flex", whiteSpace: "nowrap" }}>
               {cities.map((city, i) => (
-                <span key={i} style={{ display: "inline-flex", alignItems: "center", padding: "0 20px", fontFamily: "Inter,sans-serif", fontSize: 14, fontWeight: 500, color: "#6B7280" }}>
+                <span key={i} style={{ display: "inline-flex", alignItems: "center", padding: "0 20px", fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 500, color: "#6B7280" }}>
                   {city}
                   <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#E91E8C", opacity: 0.4, display: "inline-block", marginLeft: 20, flexShrink: 0 }} />
                 </span>

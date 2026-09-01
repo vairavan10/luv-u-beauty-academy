@@ -73,7 +73,7 @@ export default function FinalCTA() {
         {/* Tag */}
         <span className="fcta-tag" style={{
           display: "inline-block", opacity: 0,
-          fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700,
+          fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
           letterSpacing: "0.16em", textTransform: "uppercase",
           color: "#E91E8C", marginBottom: 20,
         }}>Limited Seats Available</span>
@@ -84,7 +84,7 @@ export default function FinalCTA() {
           className="fcta-heading"
           style={{
             opacity: 0,
-            fontFamily: "Playfair Display, serif",
+            fontFamily: "var(--font-display)",
             fontWeight: 800,
             fontSize: "clamp(2.2rem, 5vw, 4rem)",
             color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.1,
@@ -101,7 +101,7 @@ export default function FinalCTA() {
         {/* Sub */}
         <p className="fcta-sub" style={{
           opacity: 0,
-          fontFamily: "Inter, sans-serif",
+          fontFamily: "var(--font-body)",
           color: "rgba(255,255,255,0.5)",
           fontSize: 16, lineHeight: 1.75,
           maxWidth: 460, margin: "0 auto 44px", textAlign: "center",
@@ -120,7 +120,7 @@ export default function FinalCTA() {
               display: "inline-flex", alignItems: "center", gap: 8,
               padding: "15px 32px", borderRadius: 12,
               background: "#E91E8C", color: "#fff",
-              fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 15,
+              fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 15,
               textDecoration: "none", whiteSpace: "nowrap",
               opacity: 0, transition: "opacity 0.2s, transform 0.2s",
             }}
@@ -141,7 +141,7 @@ export default function FinalCTA() {
               background: "transparent",
               border: "1.5px solid rgba(255,255,255,0.15)",
               color: "#fff",
-              fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 15,
+              fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 15,
               textDecoration: "none", whiteSpace: "nowrap",
               opacity: 0, transition: "border-color 0.2s, background 0.2s",
             }}
@@ -164,7 +164,7 @@ export default function FinalCTA() {
               background: "transparent",
               border: "1.5px solid rgba(255,255,255,0.15)",
               color: "rgba(255,255,255,0.7)",
-              fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 15,
+              fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 15,
               textDecoration: "none", whiteSpace: "nowrap",
               opacity: 0, transition: "border-color 0.2s, color 0.2s",
             }}
@@ -185,7 +185,7 @@ export default function FinalCTA() {
               key={t}
               className="fcta-trust"
               style={{
-                fontFamily: "Inter,sans-serif", fontSize: 12.5,
+                fontFamily: "var(--font-body)", fontSize: 12.5,
                 color: "rgba(255,255,255,0.35)", opacity: 0,
                 display: "flex", alignItems: "center", gap: 7,
               }}

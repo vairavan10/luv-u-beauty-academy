@@ -65,7 +65,7 @@ export default function CoursesClient() {
               style={{
                 width: "100%", height: 50, paddingLeft: 46, paddingRight: 16,
                 borderRadius: 14, border: "1.5px solid #E5E7EB",
-                background: "#fff", fontFamily: "Inter,sans-serif",
+                background: "#fff", fontFamily: "var(--font-body)",
                 fontSize: 14, color: "#0D0D0D", outline: "none",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
                 transition: "border-color 0.2s",
@@ -100,7 +100,7 @@ export default function CoursesClient() {
                     ? "linear-gradient(135deg, #E91E8C, #C2185B)"
                     : "#fff",
                   color: activeLevel === f ? "#fff" : "#6B7280",
-                  fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 13,
+                  fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 13,
                   cursor: "pointer",
                   transition: "all 0.2s",
                   boxShadow: activeLevel === f ? "0 4px 16px rgba(233,30,140,0.25)" : "none",
@@ -121,7 +121,7 @@ export default function CoursesClient() {
                   borderColor: activeDuration === d ? "#C9A96E" : "#E5E7EB",
                   background: activeDuration === d ? "rgba(201,169,110,0.1)" : "#fff",
                   color: activeDuration === d ? "#B8860B" : "#9CA3AF",
-                  fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 12,
+                  fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 12,
                   cursor: "pointer",
                   transition: "all 0.2s",
                 }}
@@ -136,7 +136,7 @@ export default function CoursesClient() {
           marginBottom: 24,
         }}>
           <p style={{
-            fontFamily: "Inter,sans-serif", fontSize: 14, color: "#6B7280",
+            fontFamily: "var(--font-body)", fontSize: 14, color: "#6B7280",
           }}>
             Showing <strong style={{ color: "#0D0D0D" }}>{filtered.length}</strong> of {courses.length} courses
           </p>
@@ -144,7 +144,7 @@ export default function CoursesClient() {
             <button
               onClick={() => { setActiveLevel("All"); setActiveDuration("Any Duration"); setSearch(""); }}
               style={{
-                fontFamily: "Inter,sans-serif", fontSize: 13, color: "#E91E8C",
+                fontFamily: "var(--font-body)", fontSize: 13, color: "#E91E8C",
                 background: "none", border: "none", cursor: "pointer", fontWeight: 600,
                 textDecoration: "underline", padding: 0,
               }}
@@ -159,8 +159,8 @@ export default function CoursesClient() {
             background: "#fff", borderRadius: 24, border: "1px dashed #E5E7EB",
           }}>
             <p style={{ fontSize: 40, marginBottom: 12 }}>🔍</p>
-            <p style={{ fontFamily: "Playfair Display,serif", fontWeight: 700, fontSize: 22, color: "#0D0D0D", marginBottom: 8 }}>No courses found</p>
-            <p style={{ fontFamily: "Inter,sans-serif", color: "#6B7280", fontSize: 14 }}>Try adjusting your filters or search term.</p>
+            <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 22, color: "#0D0D0D", marginBottom: 8 }}>No courses found</p>
+            <p style={{ fontFamily: "var(--font-body)", color: "#6B7280", fontSize: 14 }}>Try adjusting your filters or search term.</p>
           </div>
         ) : (
           <div style={{
@@ -208,7 +208,7 @@ export default function CoursesClient() {
                       position: "absolute", top: 12, right: 12,
                       padding: "4px 12px", borderRadius: 999,
                       background: "rgba(255,255,255,0.95)",
-                      fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+                      fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
                       color: "#E91E8C", boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
                     }}>⭐ Popular</div>
                   )}
@@ -230,7 +230,7 @@ export default function CoursesClient() {
                     background: "rgba(0,0,0,0.45)", backdropFilter: "blur(8px)",
                   }}>
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    <span style={{ fontFamily: "Inter,sans-serif", color: "#fff", fontSize: 12, fontWeight: 500 }}>{course.duration}</span>
+                    <span style={{ fontFamily: "var(--font-body)", color: "#fff", fontSize: 12, fontWeight: 500 }}>{course.duration}</span>
                   </div>
 
                   {/* Level bottom-right */}
@@ -239,37 +239,37 @@ export default function CoursesClient() {
                     padding: "4px 12px", borderRadius: 999,
                     background: "rgba(233,30,140,0.8)", backdropFilter: "blur(8px)",
                   }}>
-                    <span style={{ fontFamily: "Inter,sans-serif", color: "#fff", fontSize: 11, fontWeight: 600 }}>{course.level}</span>
+                    <span style={{ fontFamily: "var(--font-body)", color: "#fff", fontSize: 11, fontWeight: 600 }}>{course.level}</span>
                   </div>
                 </div>
 
                 {/* Body */}
                 <div style={{ padding: "22px 22px 0", flex: 1, display: "flex", flexDirection: "column" }}>
                   <h2 style={{
-                    fontFamily: "Playfair Display,serif", fontWeight: 800,
+                    fontFamily: "var(--font-display)", fontWeight: 800,
                     fontSize: 19, color: "#111", letterSpacing: "-0.01em",
                     lineHeight: 1.25, margin: "0 0 8px",
                   }}>{course.title}</h2>
 
                   <p style={{
-                    fontFamily: "Inter,sans-serif", color: "#6B7280",
+                    fontFamily: "var(--font-body)", color: "#6B7280",
                     fontSize: 13.5, lineHeight: 1.65, margin: "0 0 16px",
                   }}>{course.description}</p>
 
                   {/* Curriculum preview */}
                   <div style={{ marginBottom: 16 }}>
-                    <p style={{ fontFamily: "Inter,sans-serif", fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#9CA3AF", margin: "0 0 8px" }}>
+                    <p style={{ fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#9CA3AF", margin: "0 0 8px" }}>
                       What you&apos;ll learn
                     </p>
                     <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 6 }}>
                       {course.curriculum.slice(0, 3).map(item => (
                         <li key={item} style={{ display: "flex", alignItems: "center", gap: 8 }}>
                           <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#E91E8C", flexShrink: 0 }} />
-                          <span style={{ fontFamily: "Inter,sans-serif", fontSize: 13, color: "#374151" }}>{item}</span>
+                          <span style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "#374151" }}>{item}</span>
                         </li>
                       ))}
                       {course.curriculum.length > 3 && (
-                        <li style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "#E91E8C", fontWeight: 600, paddingLeft: 13 }}>
+                        <li style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "#E91E8C", fontWeight: 600, paddingLeft: 13 }}>
                           +{course.curriculum.length - 3} more modules
                         </li>
                       )}
@@ -285,7 +285,7 @@ export default function CoursesClient() {
                     marginBottom: 0,
                   }}>
                     <span style={{ fontSize: 14 }}>🏆</span>
-                    <span style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "#6B7280" }}>{course.certification}</span>
+                    <span style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "#6B7280" }}>{course.certification}</span>
                   </div>
                 </div>
 
@@ -297,7 +297,7 @@ export default function CoursesClient() {
                       flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
                       height: 44, borderRadius: 12,
                       border: "1.5px solid rgba(233,30,140,0.3)", color: "#E91E8C",
-                      fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 13.5,
+                      fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 13.5,
                       textDecoration: "none", background: "transparent",
                       transition: "all 0.2s ease", whiteSpace: "nowrap",
                     }}
@@ -321,7 +321,7 @@ export default function CoursesClient() {
                       flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
                       height: 44, borderRadius: 12,
                       background: "linear-gradient(135deg, #E91E8C, #C2185B)", color: "#fff",
-                      fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 13.5,
+                      fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 13.5,
                       textDecoration: "none", boxShadow: "0 4px 14px rgba(233,30,140,0.3)",
                       transition: "all 0.2s ease", whiteSpace: "nowrap",
                     }}

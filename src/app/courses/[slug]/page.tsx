@@ -140,7 +140,7 @@ export default async function CourseDetailPage({ params }: Props) {
                     background: "#fff",
                     boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
                     border: "1px solid rgba(233,30,140,0.18)",
-                    fontFamily: "Inter, sans-serif", fontSize: 12, fontWeight: 700,
+                    fontFamily: "var(--font-body)", fontSize: 12, fontWeight: 700,
                     color: "#E91E8C",
                   }}>
                     <Star size={12} fill="#E91E8C" color="#E91E8C" />
@@ -167,7 +167,7 @@ export default async function CourseDetailPage({ params }: Props) {
                       background: "#fff",
                       boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
                       border: "1px solid #F0F0F0",
-                      fontFamily: "Inter, sans-serif", fontSize: 13, fontWeight: 500,
+                      fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 500,
                       color: "#374151",
                     }}
                   >
@@ -261,14 +261,14 @@ export default async function CourseDetailPage({ params }: Props) {
                           minWidth: 28, height: 28, borderRadius: "50%",
                           background: "linear-gradient(135deg, #E91E8C, #C2185B)",
                           display: "flex", alignItems: "center", justifyContent: "center",
-                          color: "#fff", fontSize: 12, fontWeight: 700, fontFamily: "Inter, sans-serif",
+                          color: "#fff", fontSize: 12, fontWeight: 700, fontFamily: "var(--font-body)",
                           flexShrink: 0,
                         }}
                       >
                         {i + 1}
                       </span>
                       <span
-                        style={{ fontFamily: "Inter, sans-serif", fontSize: 14, color: "#2D2D2D", lineHeight: 1.4 }}
+                        style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "#2D2D2D", lineHeight: 1.4 }}
                       >
                         {item}
                       </span>
@@ -323,7 +323,7 @@ export default async function CourseDetailPage({ params }: Props) {
                         <Check size={13} color="#E91E8C" strokeWidth={2.5} />
                       </span>
                       <span
-                        style={{ fontFamily: "Inter, sans-serif", fontSize: 14, color: "#2D2D2D", fontWeight: 500 }}
+                        style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "#2D2D2D", fontWeight: 500 }}
                       >
                         {career}
                       </span>
@@ -368,7 +368,7 @@ export default async function CourseDetailPage({ params }: Props) {
               >
                 <h3
                   style={{
-                    fontFamily: "Playfair Display, serif",
+                    fontFamily: "var(--font-display)",
                     fontWeight: 800, fontSize: 20,
                     color: "#2D2D2D", margin: "0 0 6px",
                   }}
@@ -377,7 +377,7 @@ export default async function CourseDetailPage({ params }: Props) {
                 </h3>
                 <p
                   style={{
-                    fontFamily: "Inter, sans-serif", fontSize: 13,
+                    fontFamily: "var(--font-body)", fontSize: 13,
                     color: "#9CA3AF", margin: "0 0 20px", lineHeight: 1.6,
                   }}
                 >
@@ -424,7 +424,7 @@ export default async function CourseDetailPage({ params }: Props) {
                         <span
                           style={{
                             display: "flex", alignItems: "center", gap: 8,
-                            fontFamily: "Inter, sans-serif", fontSize: 13,
+                            fontFamily: "var(--font-body)", fontSize: 13,
                             color: "#9CA3AF", minWidth: 0,
                           }}
                         >
@@ -442,7 +442,7 @@ export default async function CourseDetailPage({ params }: Props) {
                         </span>
                         <span
                           style={{
-                            fontFamily: "Inter, sans-serif", fontSize: 13,
+                            fontFamily: "var(--font-body)", fontSize: 13,
                             fontWeight: 700, color: "#2D2D2D",
                             textAlign: "right", flexShrink: 0,
                           }}
@@ -501,7 +501,7 @@ export default async function CourseDetailPage({ params }: Props) {
                       {related.title}
                     </p>
                     <p
-                      style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: "#9CA3AF", margin: "2px 0 0" }}
+                      style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "#9CA3AF", margin: "2px 0 0" }}
                     >
                       {related.duration}
                     </p>

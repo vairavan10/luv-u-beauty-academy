@@ -40,7 +40,7 @@ export default function GalleryPage() {
             padding: "5px 18px", borderRadius: 999,
             background: "rgba(233,30,140,0.15)",
             border: "1px solid rgba(233,30,140,0.35)",
-            fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+            fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
             letterSpacing: "0.18em", textTransform: "uppercase" as const,
             color: "#ff77c0", marginBottom: 24,
           }}>
@@ -48,7 +48,7 @@ export default function GalleryPage() {
           </span>
 
           <h1 style={{
-            fontFamily: "Playfair Display, serif",
+            fontFamily: "var(--font-display)",
             fontWeight: 900,
             fontSize: "clamp(2.2rem, 5vw, 4rem)",
             lineHeight: 1.1,
@@ -68,7 +68,7 @@ export default function GalleryPage() {
           </h1>
 
           <p style={{
-            fontFamily: "Inter,sans-serif",
+            fontFamily: "var(--font-body)",
             fontSize: "clamp(1rem, 2vw, 1.1rem)",
             lineHeight: 1.75,
             color: "rgba(255,255,255,0.6)",
@@ -93,7 +93,7 @@ export default function GalleryPage() {
                 padding: "7px 16px", borderRadius: 999,
                 background: "rgba(255,255,255,0.07)",
                 border: "1px solid rgba(255,255,255,0.12)",
-                fontFamily: "Inter,sans-serif", fontSize: 13, fontWeight: 600,
+                fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 600,
                 color: "rgba(255,255,255,0.8)",
               }}>
                 <span>{b.icon}</span> {b.text}
@@ -125,14 +125,14 @@ export default function GalleryPage() {
         }} />
         <div style={{ maxWidth: 620, margin: "0 auto", position: "relative", zIndex: 2 }}>
           <h2 style={{
-            fontFamily: "Playfair Display,serif", fontWeight: 800,
+            fontFamily: "var(--font-display)", fontWeight: 800,
             fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)",
             color: "#fff", margin: "0 0 14px", letterSpacing: "-0.025em",
           }}>
             Train Where These Photos Were Taken
           </h2>
           <p style={{
-            fontFamily: "Inter,sans-serif", fontSize: 16,
+            fontFamily: "var(--font-body)", fontSize: 16,
             color: "rgba(255,255,255,0.8)", margin: "0 auto 28px",
             lineHeight: 1.7,
           }}>
@@ -148,7 +148,7 @@ export default function GalleryPage() {
               display: "inline-flex", alignItems: "center", gap: 10,
               padding: "14px 32px", borderRadius: 14,
               background: "#fff", color: "#E91E8C",
-              fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 15,
+              fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 15,
               textDecoration: "none",
               boxShadow: "0 8px 28px rgba(0,0,0,0.15)",
               transition: "transform 0.2s, box-shadow 0.2s",

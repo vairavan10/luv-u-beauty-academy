@@ -10,8 +10,8 @@ const MAPS = "https://maps.app.goo.gl/P5NReP1tEzQtqsZV9";
 const EMAIL = "luvubeautyacademy@gmail.com";
 const ADDRESS = "No.26, Philomina Nagar, Near Don Bosco School, Yagappa Nagar, Thanjavur – 613006";
 
-const font = "Inter, system-ui, sans-serif";
-const serif = "Playfair Display, Georgia, serif";
+const font = "var(--font-body)";
+const serif = "var(--font-display)";
 
 const quickLinks = [
   { label: "Home", href: "/" },

@@ -224,8 +224,8 @@ export default function HeroSection() {
               fontSize: 16, flexShrink: 0,
             }}>⭐</div>
             <div>
-              <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 15, color: "#0D0D0D", margin: 0 }}>4.9 / 5.0</p>
-              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 11, color: "#9CA3AF", margin: 0 }}>Google Rating</p>
+              <p style={{ fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 15, color: "#0D0D0D", margin: 0 }}>4.9 / 5.0</p>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: 11, color: "#9CA3AF", margin: 0 }}>Google Rating</p>
             </div>
           </div>
         </div>
@@ -249,8 +249,8 @@ export default function HeroSection() {
               fontSize: 18, flexShrink: 0,
             }}>🎓</div>
             <div>
-              <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 15, color: "#0D0D0D", margin: 0 }}>100+ Students</p>
-              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 11, color: "#9CA3AF", margin: 0 }}>Trained &amp; Placed</p>
+              <p style={{ fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 15, color: "#0D0D0D", margin: 0 }}>100+ Students</p>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: 11, color: "#9CA3AF", margin: 0 }}>Trained &amp; Placed</p>
             </div>
           </div>
         </div>
@@ -274,8 +274,8 @@ export default function HeroSection() {
               fontSize: 18, flexShrink: 0,
             }}>🏆</div>
             <div>
-              <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 13.5, color: "#0D0D0D", margin: 0 }}>Govt. Certified</p>
-              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 11, color: "#9CA3AF", margin: 0 }}>Recognized courses</p>
+              <p style={{ fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 13.5, color: "#0D0D0D", margin: 0 }}>Govt. Certified</p>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: 11, color: "#9CA3AF", margin: 0 }}>Recognized courses</p>
             </div>
           </div>
         </div>
@@ -301,7 +301,7 @@ export default function HeroSection() {
               padding: "6px 18px", borderRadius: 999,
               background: "rgba(233,30,140,0.06)",
               border: "1px solid rgba(233,30,140,0.18)",
-              fontFamily: "Inter,sans-serif", fontSize: 12, fontWeight: 600,
+              fontFamily: "var(--font-body)", fontSize: 12, fontWeight: 600,
               color: "#C2185B", letterSpacing: "0.06em",
             }}>
               <span style={{
@@ -338,7 +338,7 @@ export default function HeroSection() {
                   className="reveal-inner"
                   style={{
                     display: "inline-block",
-                    fontFamily: "Playfair Display, serif",
+                    fontFamily: "var(--font-display)",
                     fontWeight: li === 0 ? 700 : 900,
                     fontSize: li === 0
                       ? "clamp(2rem, 5vw, 3.5rem)"
@@ -367,7 +367,7 @@ export default function HeroSection() {
                 className="reveal-inner"
                 style={{
                   display: "inline-block",
-                  fontFamily: "Playfair Display, serif",
+                  fontFamily: "var(--font-display)",
                   fontWeight: 400,
                   fontStyle: "italic",
                   fontSize: "clamp(1.2rem, 3vw, 2.2rem)",
@@ -398,7 +398,7 @@ export default function HeroSection() {
           <p
             className="hero-sub"
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: "var(--font-body)",
               color: "#6B7280", fontSize: "clamp(1rem, 2vw, 1.15rem)",
               lineHeight: 1.75, maxWidth: 500, margin: "0 auto 40px",
               opacity: 0,
@@ -419,7 +419,7 @@ export default function HeroSection() {
                 padding: "15px 34px", borderRadius: 14,
                 background: "linear-gradient(135deg, #E91E8C, #C2185B)",
                 color: "#fff",
-                fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 15.5,
+                fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 15.5,
                 textDecoration: "none",
                 boxShadow: "0 6px 28px rgba(233,30,140,0.3)",
                 transition: "box-shadow 0.25s ease",
@@ -445,7 +445,7 @@ export default function HeroSection() {
                 padding: "15px 34px", borderRadius: 14,
                 background: "#fff",
                 color: "#0D0D0D",
-                fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 15.5,
+                fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 15.5,
                 textDecoration: "none",
                 border: "1.5px solid #E5E7EB",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
@@ -476,7 +476,7 @@ export default function HeroSection() {
                 className="hero-trust"
                 style={{
                   display: "flex", alignItems: "center", gap: 8,
-                  fontFamily: "Inter,sans-serif", fontSize: 13.5,
+                  fontFamily: "var(--font-body)", fontSize: 13.5,
                   fontWeight: 500, color: "#6B7280",
                   opacity: 0,
                 }}
@@ -499,7 +499,7 @@ export default function HeroSection() {
             }}
           >
             <span style={{
-              fontFamily: "Inter,sans-serif", fontSize: 9, fontWeight: 700,
+              fontFamily: "var(--font-body)", fontSize: 9, fontWeight: 700,
               letterSpacing: "0.2em", textTransform: "uppercase", color: "#D1D5DB",
             }}>Scroll</span>
             <div style={{
@@ -540,7 +540,7 @@ export default function HeroSection() {
               style={{
                 display: "inline-flex", alignItems: "center", gap: 0,
                 padding: "0 24px",
-                fontFamily: "Inter,sans-serif", fontSize: 12.5,
+                fontFamily: "var(--font-body)", fontSize: 12.5,
                 fontWeight: 500, color: "rgba(255,255,255,0.55)",
                 letterSpacing: "0.04em", flexShrink: 0,
               }}

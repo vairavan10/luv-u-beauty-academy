@@ -107,7 +107,7 @@ function FAQItem({
           <div style={{ display: "flex", alignItems: "flex-start", gap: 20, flex: 1, minWidth: 0 }}>
             {/* Index */}
             <span style={{
-              fontFamily: "Playfair Display, serif",
+              fontFamily: "var(--font-display)",
               fontWeight: 900, fontSize: 13,
               color: isOpen ? accent : "#D1D5DB",
               lineHeight: 1, paddingTop: 3, flexShrink: 0,
@@ -122,7 +122,7 @@ function FAQItem({
               {/* Category pill */}
               <span style={{
                 display: "inline-block",
-                fontFamily: "Inter, sans-serif", fontSize: 10, fontWeight: 700,
+                fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700,
                 letterSpacing: "0.1em", textTransform: "uppercase",
                 color: accent, marginBottom: 8,
                 opacity: 0.8,
@@ -132,7 +132,7 @@ function FAQItem({
 
               {/* Question text */}
               <p style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: isOpen ? 600 : 500,
                 fontSize: "clamp(15px, 2vw, 17px)",
                 color: isOpen ? "#0D0D0D" : "#374151",
@@ -180,7 +180,7 @@ function FAQItem({
             background: accent, marginBottom: 16, opacity: 0.6,
           }} />
           <p style={{
-            fontFamily: "Inter, sans-serif",
+            fontFamily: "var(--font-body)",
             fontSize: 15, lineHeight: 1.78,
             color: "#4B5563", margin: 0,
           }}>
@@ -298,7 +298,7 @@ export default function FAQSection() {
           {/* Eyebrow */}
           <span className="faq-sub" style={{
             display: "inline-block", opacity: 0,
-            fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700,
+            fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
             letterSpacing: "0.18em", textTransform: "uppercase",
             color: "#E91E8C", marginBottom: 22,
           }}>Frequently Asked Questions</span>
@@ -319,7 +319,7 @@ export default function FAQSection() {
                     className="faq-title-line"
                     style={{
                       display: "inline-block",
-                      fontFamily: "Playfair Display, serif",
+                      fontFamily: "var(--font-display)",
                       fontWeight: li === 0 ? 700 : 900,
                       fontSize: "clamp(2.2rem, 5vw, 4rem)",
                       color: li === 0 ? "#0D0D0D" : "transparent",
@@ -343,7 +343,7 @@ export default function FAQSection() {
 
           <p className="faq-sub" style={{
             opacity: 0,
-            fontFamily: "Inter, sans-serif", color: "#6B7280",
+            fontFamily: "var(--font-body)", color: "#6B7280",
             fontSize: 16, lineHeight: 1.75, margin: 0,
             maxWidth: 520,
           }}>
@@ -386,7 +386,7 @@ export default function FAQSection() {
               border: "1px solid #F0F0F0", padding: "24px 20px",
             }}>
               <p style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "var(--font-body)",
                 fontSize: 10, fontWeight: 700,
                 letterSpacing: "0.16em", textTransform: "uppercase",
                 color: "#9CA3AF", margin: "0 0 14px",
@@ -413,7 +413,7 @@ export default function FAQSection() {
                     >
                       <div style={{ width: 6, height: 6, borderRadius: "50%", background: c, flexShrink: 0 }} />
                       <span style={{
-                        fontFamily: "Inter, sans-serif",
+                        fontFamily: "var(--font-body)",
                         fontSize: 13, fontWeight: 500,
                         color: openIndex === idx ? c : "#4B5563",
                         transition: "color 0.2s",
@@ -443,13 +443,13 @@ export default function FAQSection() {
               }} />
 
               <p style={{
-                fontFamily: "Playfair Display, serif",
+                fontFamily: "var(--font-display)",
                 fontWeight: 700, fontSize: 18, color: "#fff",
                 margin: "0 0 8px", lineHeight: 1.3, position: "relative",
               }}>Still have questions?</p>
 
               <p style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "var(--font-body)",
                 fontSize: 13, color: "rgba(255,255,255,0.45)",
                 margin: "0 0 20px", lineHeight: 1.6, position: "relative",
               }}>
@@ -464,7 +464,7 @@ export default function FAQSection() {
                     display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
                     padding: "12px 16px", borderRadius: 10,
                     background: "#E91E8C", color: "#fff",
-                    fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 13.5,
+                    fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 13.5,
                     textDecoration: "none",
                     transition: "opacity 0.2s, transform 0.2s",
                   }}
@@ -484,7 +484,7 @@ export default function FAQSection() {
                     padding: "11px 16px", borderRadius: 10,
                     border: "1.5px solid rgba(255,255,255,0.12)",
                     color: "rgba(255,255,255,0.7)",
-                    fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 13.5,
+                    fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 13.5,
                     textDecoration: "none",
                     transition: "border-color 0.2s, color 0.2s",
                   }}

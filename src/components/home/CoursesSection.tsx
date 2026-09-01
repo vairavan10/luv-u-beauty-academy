@@ -20,7 +20,7 @@ function Badge({ children }: { children: React.ReactNode }) {
       padding: "4px 12px", borderRadius: 999,
       background: "rgba(233,30,140,0.08)",
       color: "#C2185B",
-      fontFamily: "Inter, sans-serif", fontSize: 11.5, fontWeight: 600,
+      fontFamily: "var(--font-body)", fontSize: 11.5, fontWeight: 600,
       letterSpacing: "0.02em",
     }}>{children}</span>
   );
@@ -58,11 +58,11 @@ export default function CoursesSection() {
           <span style={{
             display: "inline-block", padding: "6px 18px", borderRadius: 999,
             background: "rgba(233,30,140,0.08)", color: "#E91E8C",
-            fontFamily: "Inter, sans-serif", fontSize: 12, fontWeight: 600,
+            fontFamily: "var(--font-body)", fontSize: 12, fontWeight: 600,
             letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16,
           }}>✦ Our Programs</span>
           <h2 id="courses-heading" style={{
-            fontFamily: "Playfair Display, serif", fontWeight: 800,
+            fontFamily: "var(--font-display)", fontWeight: 800,
             fontSize: "clamp(2rem,4vw,3rem)", color: "#111",
             letterSpacing: "-0.02em", lineHeight: 1.2, margin: "0 0 16px",
           }}>
@@ -73,7 +73,7 @@ export default function CoursesSection() {
             }}>Courses</span>
           </h2>
           <p style={{
-            fontFamily: "Inter, sans-serif", color: "#6B7280", fontSize: 17,
+            fontFamily: "var(--font-body)", color: "#6B7280", fontSize: 17,
             maxWidth: 520, margin: "0 auto", lineHeight: 1.65,
           }}>
             From beginner to professional — comprehensive courses designed for real beauty career success.
@@ -141,7 +141,7 @@ export default function CoursesSection() {
                     position: "absolute", top: 12, right: 12,
                     padding: "4px 10px", borderRadius: 999,
                     background: "rgba(255,255,255,0.95)",
-                    fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700,
+                    fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
                     color: "#E91E8C",
                   }}>⭐ Most Popular</div>
                 )}
@@ -155,7 +155,7 @@ export default function CoursesSection() {
                   backdropFilter: "blur(8px)",
                 }}>
                   <Clock size={11} color="white" />
-                  <span style={{ fontFamily: "Inter, sans-serif", color: "#fff", fontSize: 12, fontWeight: 500 }}>
+                  <span style={{ fontFamily: "var(--font-body)", color: "#fff", fontSize: 12, fontWeight: 500 }}>
                     {course.duration}
                   </span>
                 </div>
@@ -164,14 +164,14 @@ export default function CoursesSection() {
               {/* Body */}
               <div style={{ padding: "22px 22px 0", flex: 1, display: "flex", flexDirection: "column" }}>
                 <h3 style={{
-                  fontFamily: "Playfair Display, serif",
+                  fontFamily: "var(--font-display)",
                   fontWeight: 700, fontSize: 20, color: "#111",
                   letterSpacing: "-0.01em", lineHeight: 1.25,
                   margin: "0 0 8px",
                 }}>{course.title}</h3>
 
                 <p style={{
-                  fontFamily: "Inter, sans-serif", color: "#6B7280",
+                  fontFamily: "var(--font-body)", color: "#6B7280",
                   fontSize: 13.5, lineHeight: 1.65, margin: "0 0 14px",
                 }}>{course.shortDescription}</p>
 
@@ -182,7 +182,7 @@ export default function CoursesSection() {
                   {course.curriculum.slice(0, 3).map((item) => (
                     <li key={item} style={{ display: "flex", alignItems: "center", gap: 8 }}>
                       <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#E91E8C", flexShrink: 0 }} />
-                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: 13, color: "#6B7280" }}>{item}</span>
+                      <span style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "#6B7280" }}>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -198,7 +198,7 @@ export default function CoursesSection() {
                     height: 44, borderRadius: 12,
                     border: "1.5px solid rgba(233,30,140,0.3)",
                     color: "#E91E8C",
-                    fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 13.5,
+                    fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 13.5,
                     textDecoration: "none",
                     background: "transparent",
                     transition: "all 0.2s ease",
@@ -230,7 +230,7 @@ export default function CoursesSection() {
                     height: 44, borderRadius: 12,
                     background: "linear-gradient(135deg, #E91E8C, #C2185B)",
                     color: "#fff",
-                    fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 13.5,
+                    fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 13.5,
                     textDecoration: "none",
                     boxShadow: "0 4px 14px rgba(233,30,140,0.3)",
                     transition: "all 0.2s ease",
@@ -266,7 +266,7 @@ export default function CoursesSection() {
               padding: "14px 32px", borderRadius: 14,
               border: "2px solid rgba(233,30,140,0.3)",
               color: "#E91E8C",
-              fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 15,
+              fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 15,
               textDecoration: "none",
               transition: "all 0.2s ease",
             }}

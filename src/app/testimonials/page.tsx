@@ -64,7 +64,7 @@ export default function TestimonialsPage() {
           <span style={{
             display: "inline-block", padding: "5px 18px", borderRadius: 999,
             background: "rgba(233,30,140,0.15)", border: "1px solid rgba(233,30,140,0.35)",
-            fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+            fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
             letterSpacing: "0.18em", textTransform: "uppercase" as const,
             color: "#ff77c0", marginBottom: 24,
           }}>
@@ -72,7 +72,7 @@ export default function TestimonialsPage() {
           </span>
 
           <h1 style={{
-            fontFamily: "Playfair Display, serif", fontWeight: 900,
+            fontFamily: "var(--font-display)", fontWeight: 900,
             fontSize: "clamp(2.2rem, 5vw, 4rem)", lineHeight: 1.1,
             letterSpacing: "-0.03em", margin: "0 0 20px", color: "#fff",
           }}>
@@ -87,7 +87,7 @@ export default function TestimonialsPage() {
           </h1>
 
           <p style={{
-            fontFamily: "Inter,sans-serif", fontSize: "clamp(1rem, 2vw, 1.05rem)",
+            fontFamily: "var(--font-body)", fontSize: "clamp(1rem, 2vw, 1.05rem)",
             lineHeight: 1.75, color: "rgba(255,255,255,0.6)",
             maxWidth: 540, margin: "0 auto 36px",
           }}>
@@ -105,20 +105,20 @@ export default function TestimonialsPage() {
             backdropFilter: "blur(12px)",
           }}>
             <div style={{ textAlign: "center" }}>
-              <p style={{ fontFamily: "Playfair Display,serif", fontWeight: 900, fontSize: 38, color: "#fff", margin: 0, lineHeight: 1 }}>4.9</p>
+              <p style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 38, color: "#fff", margin: 0, lineHeight: 1 }}>4.9</p>
               <div style={{ display: "flex", gap: 3, justifyContent: "center", marginTop: 5 }}>
                 {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#C9A96E" color="#C9A96E" />)}
               </div>
             </div>
             <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.15)" }} />
             <div style={{ textAlign: "left" }}>
-              <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 13, color: "#fff", margin: "0 0 2px" }}>Google Rating</p>
-              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "rgba(255,255,255,0.45)", margin: 0 }}>On Google Business</p>
+              <p style={{ fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 13, color: "#fff", margin: "0 0 2px" }}>Google Rating</p>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "rgba(255,255,255,0.45)", margin: 0 }}>On Google Business</p>
             </div>
             <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.15)" }} />
             <div style={{ textAlign: "left" }}>
-              <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 13, color: "#fff", margin: "0 0 2px" }}>100% Placement Support</p>
-              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "rgba(255,255,255,0.45)", margin: 0 }}>For every graduate</p>
+              <p style={{ fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 13, color: "#fff", margin: "0 0 2px" }}>100% Placement Support</p>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "rgba(255,255,255,0.45)", margin: 0 }}>For every graduate</p>
             </div>
           </div>
         </div>
@@ -136,12 +136,12 @@ export default function TestimonialsPage() {
               borderRight: i < 3 ? "1px solid #F3F4F6" : "none",
             }}>
               <p style={{
-                fontFamily: "Playfair Display,serif", fontWeight: 900,
+                fontFamily: "var(--font-display)", fontWeight: 900,
                 fontSize: "clamp(1.8rem, 3vw, 2.4rem)", color: "#E91E8C",
                 margin: "0 0 3px", letterSpacing: "-0.03em", lineHeight: 1,
               }}>{s.number}</p>
-              <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 13, color: "#2D2D2D", margin: "0 0 2px" }}>{s.label}</p>
-              <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "#9CA3AF", margin: 0 }}>{s.sublabel}</p>
+              <p style={{ fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 13, color: "#2D2D2D", margin: "0 0 2px" }}>{s.label}</p>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "#9CA3AF", margin: 0 }}>{s.sublabel}</p>
             </div>
           ))}
         </div>
@@ -167,10 +167,10 @@ export default function TestimonialsPage() {
             <Infinity size={22} color="#E91E8C" />
           </div>
           <div>
-            <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 15, color: "#fff", margin: "0 0 3px" }}>
+            <p style={{ fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 15, color: "#fff", margin: "0 0 3px" }}>
               Lifetime Teaching Support — Free for All Students
             </p>
-            <p style={{ fontFamily: "Inter,sans-serif", fontSize: 13, color: "rgba(255,255,255,0.5)", margin: 0 }}>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "rgba(255,255,255,0.5)", margin: 0 }}>
               Even after completing your course, come back anytime to practise, gain experience, or clarify doubts. Our relationship doesn&apos;t end at graduation.
             </p>
           </div>
@@ -183,12 +183,12 @@ export default function TestimonialsPage() {
 
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <p style={{
-              fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700,
+              fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
               letterSpacing: "0.18em", textTransform: "uppercase" as const,
               color: "#E91E8C", marginBottom: 10,
             }}>மாணவர்களின் அனுபவங்கள்</p>
             <h2 style={{
-              fontFamily: "Playfair Display,serif", fontWeight: 800,
+              fontFamily: "var(--font-display)", fontWeight: 800,
               fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "#0D0D0D",
               letterSpacing: "-0.025em", margin: 0,
             }}>Real Stories, Real Transformations</h2>
@@ -230,7 +230,7 @@ export default function TestimonialsPage() {
 
                   {/* Review text */}
                   <blockquote style={{
-                    fontFamily: "Inter,sans-serif", color: "#4B5563",
+                    fontFamily: "var(--font-body)", color: "#4B5563",
                     fontSize: 14, lineHeight: 1.75, margin: 0,
                   }}>
                     &ldquo;{t.review}&rdquo;
@@ -241,12 +241,12 @@ export default function TestimonialsPage() {
                     <span style={{
                       display: "inline-block", padding: "3px 11px", borderRadius: 999,
                       background: "rgba(233,30,140,0.07)",
-                      fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 700, color: "#E91E8C",
+                      fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700, color: "#E91E8C",
                     }}>{t.course}</span>
                     <span style={{
                       display: "inline-block", padding: "3px 11px", borderRadius: 999,
                       background: "#F3F4F6",
-                      fontFamily: "Inter,sans-serif", fontSize: 11, fontWeight: 600, color: "#6B7280",
+                      fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 600, color: "#6B7280",
                     }}>Batch: {t.batch}</span>
                   </div>
 
@@ -263,7 +263,7 @@ export default function TestimonialsPage() {
                       border: `1.5px solid ${av.color}30`,
                     }}>
                       <span style={{
-                        fontFamily: "Playfair Display,serif", fontWeight: 800,
+                        fontFamily: "var(--font-display)", fontWeight: 800,
                         fontSize: 15, color: av.color, lineHeight: 1,
                         userSelect: "none",
                       }}>
@@ -273,18 +273,18 @@ export default function TestimonialsPage() {
 
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-                        <p style={{ fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 14, color: "#0D0D0D", margin: 0 }}>
+                        <p style={{ fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 14, color: "#0D0D0D", margin: 0 }}>
                           {t.name}
                         </p>
                         <BadgeCheck size={13} color="#E91E8C" fill="rgba(233,30,140,0.12)" />
                       </div>
-                      <p style={{ fontFamily: "Inter,sans-serif", fontSize: 11, color: "#9CA3AF", margin: "1px 0 3px" }}>
+                      <p style={{ fontFamily: "var(--font-body)", fontSize: 11, color: "#9CA3AF", margin: "1px 0 3px" }}>
                         {t.tamilName}
                       </p>
-                      <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, fontWeight: 600, color: "#E91E8C", margin: "0 0 1px" }}>
+                      <p style={{ fontFamily: "var(--font-body)", fontSize: 12, fontWeight: 600, color: "#E91E8C", margin: "0 0 1px" }}>
                         {t.outcome}
                       </p>
-                      <p style={{ fontFamily: "Inter,sans-serif", fontSize: 11, color: "#9CA3AF", margin: 0 }}>
+                      <p style={{ fontFamily: "var(--font-body)", fontSize: 11, color: "#9CA3AF", margin: 0 }}>
                         📍 {t.location}
                       </p>
                     </div>
@@ -307,12 +307,12 @@ export default function TestimonialsPage() {
             {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="#C9A96E" color="#C9A96E" />)}
           </div>
           <p style={{
-            fontFamily: "Playfair Display,serif", fontWeight: 800,
+            fontFamily: "var(--font-display)", fontWeight: 800,
             fontSize: "clamp(1.2rem, 2.5vw, 1.7rem)", color: "#0D0D0D", margin: "0 0 8px",
           }}>
             Rated 4.9 / 5 on Google Reviews
           </p>
-          <p style={{ fontFamily: "Inter,sans-serif", fontSize: 13, color: "#6B7280", margin: "0 0 22px", lineHeight: 1.7 }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "#6B7280", margin: "0 0 22px", lineHeight: 1.7 }}>
             Trusted by students across Tanjore, Thanjavur, Kumbakonam &amp; beyond<br />
             <span style={{ color: "#E91E8C", fontWeight: 600 }}>உண்மையான மாணவர்களின் உண்மையான வார்த்தைகள்.</span>
           </p>
@@ -323,7 +323,7 @@ export default function TestimonialsPage() {
               display: "inline-flex", alignItems: "center", gap: 8,
               padding: "12px 26px", borderRadius: 14,
               background: "linear-gradient(135deg, #E91E8C, #C2185B)",
-              color: "#fff", fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 14,
+              color: "#fff", fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 14,
               textDecoration: "none", boxShadow: "0 6px 20px rgba(233,30,140,0.3)",
             }}
           >
@@ -349,16 +349,16 @@ export default function TestimonialsPage() {
         }} />
         <div style={{ maxWidth: 580, margin: "0 auto", position: "relative", zIndex: 2 }}>
           <h2 style={{
-            fontFamily: "Playfair Display,serif", fontWeight: 800,
+            fontFamily: "var(--font-display)", fontWeight: 800,
             fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
             color: "#fff", margin: "0 0 8px", letterSpacing: "-0.025em",
           }}>
             Be Our Next Success Story
           </h2>
-          <p style={{ fontFamily: "Inter,sans-serif", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.7)", margin: "0 0 6px" }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.7)", margin: "0 0 6px" }}>
             நீங்களும் ஒரு success story ஆகலாம்!
           </p>
-          <p style={{ fontFamily: "Inter,sans-serif", fontSize: 14, color: "rgba(255,255,255,0.75)", margin: "0 auto 28px", lineHeight: 1.7 }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "rgba(255,255,255,0.75)", margin: "0 auto 28px", lineHeight: 1.7 }}>
             Join Luv U Beauty Academy and start your journey today.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center" }}>
@@ -369,7 +369,7 @@ export default function TestimonialsPage() {
                 display: "inline-flex", alignItems: "center", gap: 8,
                 padding: "13px 28px", borderRadius: 13,
                 background: "#fff", color: "#E91E8C",
-                fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 14,
+                fontFamily: "var(--font-body)", fontWeight: 700, fontSize: 14,
                 textDecoration: "none", boxShadow: "0 8px 28px rgba(0,0,0,0.15)",
               }}
             >
@@ -382,7 +382,7 @@ export default function TestimonialsPage() {
                 padding: "13px 28px", borderRadius: 13,
                 background: "rgba(255,255,255,0.12)", color: "#fff",
                 border: "1.5px solid rgba(255,255,255,0.35)",
-                fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 14,
+                fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 14,
                 textDecoration: "none",
               }}
             >

@@ -98,13 +98,13 @@ export default function PlacementSection() {
         <div className="pl-header" style={{ maxWidth: 600, marginBottom: 64, opacity: 0 }}>
           <span style={{
             display: "inline-block",
-            fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 700,
+            fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700,
             letterSpacing: "0.16em", textTransform: "uppercase", color: "#E91E8C",
             marginBottom: 16,
           }}>Career Opportunities</span>
 
           <h2 id="placement-heading" style={{
-            fontFamily: "Playfair Display, serif",
+            fontFamily: "var(--font-display)",
             fontWeight: 800, fontSize: "clamp(2rem, 4vw, 3.2rem)",
             color: "#0D0D0D", letterSpacing: "-0.03em", lineHeight: 1.15,
             margin: "0 0 20px",
@@ -117,7 +117,7 @@ export default function PlacementSection() {
           </h2>
 
           <p style={{
-            fontFamily: "Inter, sans-serif", color: "#6B7280",
+            fontFamily: "var(--font-body)", color: "#6B7280",
             fontSize: 16, lineHeight: 1.75, margin: 0,
           }}>
             A certificate from Luv U opens doors to incredible opportunities — from local salons to international stages.
@@ -162,14 +162,14 @@ export default function PlacementSection() {
 
               {/* Title */}
               <h3 style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 600, fontSize: 17, color: "#0D0D0D",
                 margin: "0 0 10px", lineHeight: 1.35,
               }}>{title}</h3>
 
               {/* Description */}
               <p style={{
-                fontFamily: "Inter, sans-serif", color: "#6B7280",
+                fontFamily: "var(--font-body)", color: "#6B7280",
                 fontSize: 14, lineHeight: 1.7, margin: "0 0 20px",
               }}>{description}</p>
 
@@ -177,7 +177,7 @@ export default function PlacementSection() {
               <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                 <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#E91E8C", flexShrink: 0 }} />
                 <span style={{
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontSize: 13, fontWeight: 600, color: "#E91E8C",
                 }}>{salary}</span>
               </div>
@@ -200,12 +200,12 @@ export default function PlacementSection() {
             {stats.map((s, i) => (
               <div key={s.label} className="pl-stat" style={{ opacity: 0 }}>
                 <p style={{
-                  fontFamily: "Playfair Display, serif",
+                  fontFamily: "var(--font-display)",
                   fontWeight: 800, fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
                   color: "#fff", margin: "0 0 4px", letterSpacing: "-0.03em", lineHeight: 1,
                 }}>{s.number}{i === 2 ? " days" : ""}</p>
                 <p style={{
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.45)",
                   margin: 0, letterSpacing: "0.01em",
                 }}>{s.label}</p>
@@ -221,7 +221,7 @@ export default function PlacementSection() {
               display: "inline-flex", alignItems: "center", gap: 10,
               padding: "14px 28px", borderRadius: 12,
               background: "#E91E8C", color: "#fff",
-              fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 15,
+              fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 15,
               textDecoration: "none", whiteSpace: "nowrap",
               transition: "opacity 0.2s ease, transform 0.2s ease",
               flexShrink: 0,

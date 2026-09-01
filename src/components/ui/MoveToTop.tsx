@@ -57,7 +57,7 @@ export default function MoveToTop() {
           style={{
             background: "rgba(15,15,15,0.82)",
             color: "#fff",
-            fontFamily: "Inter, sans-serif",
+            fontFamily: "var(--font-body)",
             fontSize: 11,
             fontWeight: 600,
             padding: "4px 10px",
