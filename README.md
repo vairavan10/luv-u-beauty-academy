@@ -174,7 +174,7 @@ luv-u-beauty-academy/
 
 ### Prerequisites
 
-- **Node.js** `>= 18.0.0`
+- **Node.js** `>= 20.9.0` (required by Next.js 16 — Node 18 will fail)
 - **npm** `>= 9.0.0` (or pnpm / yarn)
 - **Git** `>= 2.38`
 
@@ -182,7 +182,7 @@ luv-u-beauty-academy/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/luv-u-beauty-academy.git
+git clone https://github.com/vairavan10/luv-u-beauty-academy.git
 cd luv-u-beauty-academy
 
 # 2. Install dependencies
@@ -207,20 +207,19 @@ npm run lint         # Run ESLint code quality checks
 
 ## 🌍 Environment Variables
 
-This project has no required environment variables for basic operation — all content is statically defined.
+All environment variables are optional — the site builds and runs with none of
+them set. Copy `.env.example` to `.env.local` and fill in what you need.
 
-For custom integrations, create a `.env.local` file:
+| Variable | Purpose |
+|---|---|
+| `LEAD_WEBHOOK_URL` | Where `/api/enquiry` forwards contact-form submissions. Server-only. |
+| `NEXT_PUBLIC_GA_ID` | Google Analytics 4 measurement ID |
+| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager container ID |
+| `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console meta-tag value |
 
-```env
-# Optional — override default WhatsApp number
-NEXT_PUBLIC_WHATSAPP_NUMBER=919487992728
-
-# Optional — Google Analytics
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-
-# Optional — site URL (used for canonical & OG tags)
-NEXT_PUBLIC_SITE_URL=https://luvubeautyacademy.com
-```
+`NEXT_PUBLIC_*` values are inlined at build time — changing one needs a rebuild,
+not just a restart. The WhatsApp number and site domain are constants in the
+source, not environment variables.
 
 > ⚠️ Never commit `.env.local` to version control.
 
@@ -228,9 +227,13 @@ NEXT_PUBLIC_SITE_URL=https://luvubeautyacademy.com
 
 ## 🚀 Deployment
 
+> **Handing this to a hosting provider?** Give them [DEPLOYMENT.md](DEPLOYMENT.md) —
+> it covers the Node 20.9+ requirement, environment variables, the hardcoded
+> domain that must be updated, and a pre-launch checklist.
+
 ### Vercel (Recommended — zero config)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/luv-u-beauty-academy)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vairavan10/luv-u-beauty-academy)
 
 ```bash
 # Install Vercel CLI
@@ -241,6 +244,9 @@ vercel --prod
 ```
 
 ### Netlify
+
+Install the official `@netlify/plugin-nextjs` plugin (Netlify normally adds it
+automatically).
 
 ```bash
 # Build command
@@ -253,16 +259,14 @@ npm run build
 ### Docker
 
 ```dockerfile
-FROM node:18-alpine AS builder
+FROM node:20-alpine
 WORKDIR /app
+COPY package*.json ./
+RUN npm ci
 COPY . .
-RUN npm ci && npm run build
-
-FROM node:18-alpine AS runner
-WORKDIR /app
-COPY --from=builder /app/.next/standalone ./
+RUN npm run build
 EXPOSE 3000
-CMD ["node", "server.js"]
+CMD ["npm", "run", "start"]
 ```
 
 ---
