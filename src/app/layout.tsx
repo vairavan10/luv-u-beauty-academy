@@ -7,6 +7,7 @@ import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import MoveToTop from "@/components/ui/MoveToTop";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import { localBusinessSchema } from "@/lib/schema";
+import Analytics from "@/components/analytics/Analytics";
 
 const siteUrl = "https://luvubeautyacademy.com";
 
@@ -98,6 +99,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  // Google Search Console site verification. Set NEXT_PUBLIC_GSC_VERIFICATION
+  // to the content value from the "HTML tag" method; omitted entirely when
+  // unset so no empty meta tag is emitted.
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } }
+    : {}),
   category: "Education",
 };
 
@@ -136,6 +143,8 @@ export default function RootLayout({
           <MoveToTop />
         </SmoothScrollProvider>
       </body>
+      {/* Renders nothing unless NEXT_PUBLIC_GA_ID / NEXT_PUBLIC_GTM_ID are set. */}
+      <Analytics />
     </html>
   );
 }
