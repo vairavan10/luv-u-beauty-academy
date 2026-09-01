@@ -113,9 +113,9 @@ export default async function CourseDetailPage({ params }: Props) {
             className="flex items-center gap-2 text-sm font-body text-gray-400 mb-8"
             aria-label="Breadcrumb"
           >
-            <Link href="/" className="hover:text-rose-gold transition-colors">Home</Link>
+            <Link href="/" className="hover:text-rose-gold transition-colors inline-flex items-center min-h-11">Home</Link>
             <ChevronRight size={14} />
-            <Link href="/courses" className="hover:text-rose-gold transition-colors">Courses</Link>
+            <Link href="/courses" className="hover:text-rose-gold transition-colors inline-flex items-center min-h-11">Courses</Link>
             <ChevronRight size={14} />
             <span className="text-rose-gold font-medium">{course.title}</span>
           </nav>

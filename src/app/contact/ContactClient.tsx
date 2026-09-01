@@ -248,6 +248,8 @@ export default function ContactClient() {
                       fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 600,
                       color: "#E91E8C", textDecoration: "none",
                       display: "inline-flex", alignItems: "center", gap: 4,
+                      // Was 22px tall — under the 24px WCAG 2.5.8 floor.
+                      minHeight: 44, paddingTop: 8, paddingBottom: 8,
                     }}
                     onClick={e => e.stopPropagation()}
                   >{card.linkLabel}</a>

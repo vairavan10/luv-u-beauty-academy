@@ -227,14 +227,37 @@ export default function TestimonialSection() {
                     key={i}
                     onClick={() => goTo(i)}
                     aria-label={`Go to testimonial ${i + 1}`}
+                    /*
+                     * The dot itself stays 8px tall, but the button around it is
+                     * a transparent 44px-tall hit area — the visible dot was
+                     * only 8x8, far too small to hit reliably on a phone.
+                     * Width stays narrow because eight 44px-wide buttons would
+                     * not fit across a 375px screen.
+                     */
                     style={{
-                      height: 8, borderRadius: 4, border: "none", cursor: "pointer",
-                      background: i === active ? "#E91E8C" : "rgba(233,30,140,0.2)",
-                      width: i === active ? 28 : 8,
-                      transition: "all 0.3s ease",
+                      height: 44,
+                      // 24px is the WCAG 2.5.8 (AA) floor. Eight 44px-wide
+                      // buttons would not fit across a 375px screen, so width
+                      // sits at the minimum rather than the 44px AAA ideal.
+                      width: i === active ? 44 : 24,
+                      border: "none", cursor: "pointer",
+                      background: "transparent",
                       padding: 0,
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      transition: "width 0.3s ease",
                     }}
-                  />
+                  >
+                    <span
+                      aria-hidden
+                      style={{
+                        display: "block",
+                        height: 8, borderRadius: 4,
+                        background: i === active ? "#E91E8C" : "rgba(233,30,140,0.2)",
+                        width: i === active ? 28 : 8,
+                        transition: "all 0.3s ease",
+                      }}
+                    />
+                  </button>
                 ))}
               </div>
 

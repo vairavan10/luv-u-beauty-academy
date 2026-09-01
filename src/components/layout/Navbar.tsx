@@ -113,6 +113,10 @@ export default function Navbar() {
               color: "rgba(255,255,255,0.92)", fontSize: 12,
               fontFamily: "var(--font-body)", fontWeight: 600,
               display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap",
+              // Fills the bar's full height. 44px is impossible here — the bar
+              // is a fixed 36px and the header is offset by exactly that much.
+              // 116x36 still clears the 24x24 WCAG 2.5.8 minimum comfortably.
+              height: 36, padding: "0 4px",
             }}>
               <Phone size={11} color="white" /> +91 {PHONE}
             </a>
@@ -276,13 +280,17 @@ export default function Navbar() {
             </div>
 
             {/* Mobile hamburger */}
+            {/*
+              Display lives in the className, not the inline style: an inline
+              `display: "flex"` overrides `lg:hidden`, which left the hamburger
+              visible on desktop next to the full nav.
+            */}
             <button onClick={() => setMobileOpen(!mobileOpen)} style={{
-              width: 42, height: 42, borderRadius: 12, border: "1px solid",
+              width: 44, height: 44, borderRadius: 12, border: "1px solid",
               borderColor: mobileOpen ? "rgba(233,30,140,0.3)" : "rgba(0,0,0,0.1)",
               background: mobileOpen ? "rgba(233,30,140,0.06)" : "transparent",
-              display: "flex", alignItems: "center", justifyContent: "center",
               cursor: "pointer", transition: "all 0.2s ease",
-            }} className="lg:hidden" aria-label="Menu">
+            }} className="lg:hidden flex items-center justify-center" aria-label="Menu">
               {mobileOpen ? <X size={20} color="#E91E8C" /> : <Menu size={20} color="#374151" />}
             </button>
           </div>
@@ -326,8 +334,8 @@ export default function Navbar() {
               priority
             />
           </Link>
-          <button onClick={() => setMobileOpen(false)} style={{
-            width: 36, height: 36, borderRadius: 10,
+          <button onClick={() => setMobileOpen(false)} aria-label="Close menu" style={{
+            width: 44, height: 44, borderRadius: 10,
             background: "rgba(233,30,140,0.06)", border: "1px solid rgba(233,30,140,0.15)",
             display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer",
           }}>
@@ -342,7 +350,7 @@ export default function Navbar() {
           display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
           <span style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "#6B7280" }}>📞 Call us anytime</span>
-          <a href={`tel:+91${PHONE}`} style={{ fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 700, color: "#E91E8C", textDecoration: "none" }}>{PHONE}</a>
+          <a href={`tel:+91${PHONE}`} style={{ fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 700, color: "#E91E8C", textDecoration: "none", display: "flex", alignItems: "center", minHeight: 44, paddingLeft: 12 }}>{PHONE}</a>
         </div>
 
         {/* Nav links */}

@@ -153,7 +153,7 @@ export default function Footer() {
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                     aria-label={s.label}
                     style={{
-                      width: 40, height: 40, borderRadius: 12,
+                      width: 44, height: 44, borderRadius: 12,
                       background: "rgba(255,255,255,0.06)", color: "#9CA3AF",
                       border: "1px solid rgba(255,255,255,0.09)",
                       display: "flex", alignItems: "center", justifyContent: "center",
@@ -207,13 +207,16 @@ export default function Footer() {
             {/* ── QUICK LINKS ── */}
             <div className="lg:col-span-2">
               <ColHead>Quick Links</ColHead>
-              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 14 }}>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 4 }}>
                 {quickLinks.map(l => (
                   <li key={l.href}>
                     <Link href={l.href} style={{
                       display: "flex", alignItems: "center", gap: 10,
                       fontFamily: font, fontSize: 14.5, color: "#9CA3AF",
                       textDecoration: "none", transition: "color 0.15s ease",
+                      // Row was 25px tall. Padding lifts the tap target to 44px;
+                      // the <ul> gap was cut from 14 to 4 to keep the same rhythm.
+                      padding: "10px 0", minHeight: 44, boxSizing: "border-box",
                     }}
                       onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#F9A8D4"}
                       onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#9CA3AF"}
@@ -229,13 +232,16 @@ export default function Footer() {
             {/* ── COURSES ── */}
             <div className="lg:col-span-3">
               <ColHead>Our Courses</ColHead>
-              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 14 }}>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 4 }}>
                 {courseLinks.map(l => (
                   <li key={l.href}>
                     <Link href={l.href} style={{
                       display: "flex", alignItems: "center", gap: 10,
                       fontFamily: font, fontSize: 14.5, color: "#9CA3AF",
                       textDecoration: "none", transition: "color 0.15s ease",
+                      // Row was 25px tall. Padding lifts the tap target to 44px;
+                      // the <ul> gap was cut from 14 to 4 to keep the same rhythm.
+                      padding: "10px 0", minHeight: 44, boxSizing: "border-box",
                     }}
                       onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#F9A8D4"}
                       onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#9CA3AF"}
@@ -269,7 +275,7 @@ export default function Footer() {
 
                 {/* Phone */}
                 <a href={`tel:+91${PHONE}`}
-                  style={{ display: "flex", alignItems: "center", gap: 14, textDecoration: "none" }}
+                  style={{ display: "flex", alignItems: "center", gap: 14, textDecoration: "none", minHeight: 44 }}
                   onMouseEnter={e => { const s = (e.currentTarget as HTMLElement).querySelector("span.t") as HTMLElement; if (s) s.style.color = "#F9A8D4"; }}
                   onMouseLeave={e => { const s = (e.currentTarget as HTMLElement).querySelector("span.t") as HTMLElement; if (s) s.style.color = "#9CA3AF"; }}
                 >
@@ -283,7 +289,7 @@ export default function Footer() {
 
                 {/* Email */}
                 <a href={`mailto:${EMAIL}`}
-                  style={{ display: "flex", alignItems: "center", gap: 14, textDecoration: "none" }}
+                  style={{ display: "flex", alignItems: "center", gap: 14, textDecoration: "none", minHeight: 44 }}
                   onMouseEnter={e => { const s = (e.currentTarget as HTMLElement).querySelector("span.t") as HTMLElement; if (s) s.style.color = "#F9A8D4"; }}
                   onMouseLeave={e => { const s = (e.currentTarget as HTMLElement).querySelector("span.t") as HTMLElement; if (s) s.style.color = "#9CA3AF"; }}
                 >

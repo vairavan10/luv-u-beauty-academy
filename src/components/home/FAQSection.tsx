@@ -402,7 +402,9 @@ export default function FAQSection() {
                       onClick={() => setOpenIndex(idx)}
                       style={{
                         display: "flex", alignItems: "center", gap: 10,
-                        padding: "9px 12px", borderRadius: 8, border: "none",
+                        // 11px vertical takes the row from 40px to a 44px target.
+                        padding: "11px 12px", borderRadius: 8, border: "none",
+                        minHeight: 44, boxSizing: "border-box",
                         background: openIndex === idx ? `${c}0D` : "transparent",
                         cursor: "pointer",
                         textAlign: "left",
